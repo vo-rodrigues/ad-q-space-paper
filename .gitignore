@@ -1,0 +1,27 @@
+# LaTeX auxiliary and build files
+*.aux
+*.bbl
+*.bcf
+*.blg
+*.fdb_latexmk
+*.fls
+*.idx
+*.ilg
+*.ind
+*.lof
+*.log
+*.lot
+*.out
+*.run.xml
+*.synctex.gz
+*.toc
+
+# Generated documents
+*.pdf
+
+# Editor and temporary files
+*.bak
+*.sav
+*.swp
+*.swo
+*~

@@ -1,0 +1,78 @@
+\section{On $\mathfrak{adp}$ and $\mathfrak{adp}_2$}\label{sec:adp}
+
+We will need the following result, which is a particular case of \cite[Theorem 2.1]{zbMATH03494419}.
+For completeness, we sketch a direct proof for this specific case. Recall that almost disjoint families of cardinality $\mathfrak c$ exist: for instance, for each $x \in 2^\omega$, consider $a_x=\{x\restriction n: n \in \omega\}$.
+Then $\{a_x: x \in 2^{\omega}\}$ is an almost disjoint family over the infinite countable set of all finite binary sequences.
+
+\begin{thm}\label{maintool}
+    Let $\lambda<\mathfrak c$ and $(a_\alpha: \alpha<\lambda)$ be a family in $[\omega]^{\aleph_0}$.
+    Then there exists a family $(a'_\alpha: \alpha<\lambda)$ such that $a'_\alpha\in[a_\alpha]^{\aleph_0}$ for every $\alpha<\lambda$, and $a'_\alpha\perp a'_\beta$ whenever $\alpha\neq\beta$.
+\end{thm}
+
+\begin{proof}
+    We may assume that $\lambda$ is infinite.
+    
+    For each $\alpha<\lambda$, let $\mathcal A_\alpha=(b^\alpha_\xi: \xi<\lambda^+)$ be an injective indexing of an almost disjoint family of cardinality $\lambda^+$ over the infinite countable set $a_\alpha$.
+
+    Let $F:\lambda \rightarrow \lambda$ be such that $F(\alpha)=\min\{\beta\leq \alpha: |\{\xi<\lambda^+: b^\beta_\xi\not\perp a_\alpha\}|=\lambda^+\}$. Let $Y=\bigcup_{\alpha, \beta<\lambda}\{\xi<\lambda^+: b_\xi^\beta\not\perp a_\alpha\,\wedge\, F(\alpha)>\beta\}$. By the minimality of $F(\alpha)$, the regularity of $\lambda^+$, and the fact that $\lambda$ is infinite, $|Y|\leq \lambda$.
+    
+    For each $\alpha<\lambda$, let $X_\alpha=F^{-1}[\{\alpha\}]$. Recursively define, for $\alpha<\lambda$, an injective $G_\alpha: X_\alpha\rightarrow \lambda^+$ and $(a_\delta': \delta\in X_\alpha)$ so that $G_\alpha(\delta)\in \{\xi<\lambda^+: b_\xi^\alpha\not \perp a_\delta\}\setminus Y$ and $a_\delta'=a_\delta\cap b^{\alpha}_{G_\alpha(\delta)}$.
+    This is possible because, for each $\delta\in X_\alpha$, the set $\{\xi<\lambda^+: b_\xi^\alpha\not \perp a_\delta\}$ has size $\lambda^+$, while at each stage at most $\lambda$ indices have been excluded.
+    If $\delta,\gamma\in X_\alpha$ are distinct, then the injectivity of $G_\alpha$ and the almost disjointness of $\mathcal A_\alpha$ give $a'_\delta\perp a'_\gamma$.
+    If $\delta\in X_\alpha$, $\gamma\in X_\beta$, and $\alpha<\beta$, then $G_\alpha(\delta)\notin Y$ implies $b^\alpha_{G_\alpha(\delta)}\perp a_\gamma$, and hence $a'_\delta\perp a'_\gamma$; the case $\beta<\alpha$ is symmetric.
+\end{proof}
+
+Now we are ready to prove the two equalities announced in the introduction.
+First, we settle Question 12 of \cite{banakh2023q}.
+
+\begin{thm}\label{thm:adp-equals-dp}
+     In ZFC,
+    $\mathfrak{dp}=\mathfrak{adp}$.
+\end{thm}
+\begin{proof}
+    It is clear that $\mathfrak{dp}\leq\mathfrak{adp}$. For the converse, assume $\kappa<\mathfrak{adp}$.
+    We show that $\kappa<\mathfrak{dp}$.
+
+    Let $\mathcal A, \mathcal B\subseteq[\omega]^{\aleph_0}$ be such that $\mathcal A\perp\mathcal B$ and $|\mathcal A\cup\mathcal B|\leq\kappa$.
+    We show that $\mathcal A$ is weakly separated from $\mathcal B$.
+    Let $\lambda=|\mathcal A|\leq \kappa$ and enumerate it as $\mathcal A=\{a_\alpha: \alpha<\lambda\}$.
+
+    Since $\mathfrak{adp}\leq\mathfrak{ap}\leq\mathfrak c$, we have
+    $\lambda\leq\kappa<\mathfrak{adp}\leq\mathfrak c$.
+    Thus, by Theorem \ref{maintool}, there exists $(a'_\alpha: \alpha<\lambda)$ such that $a'_\alpha\subseteq a_\alpha$ and for every two distinct
+    $\alpha, \beta<\lambda$, $a'_\alpha\perp a'_\beta$. Let $\mathcal A'=\{a'_\alpha: \alpha<\lambda\}$. 
+    Then $\mathcal A'\perp \mathcal B$, $\mathcal A'$ is an almost disjoint family and
+    $|\mathcal A'\cup\mathcal B|\leq \kappa<\mathfrak{adp}$, so $\mathcal A'$ is weakly separated from $\mathcal B$.
+
+    Let $X\subseteq \omega$ be such that $a'_\alpha\not\perp X$ for every $\alpha<\lambda$, and $b\perp X$ for every $b\in\mathcal B$.
+    Since $a'_\alpha\subseteq a_\alpha$, we have $a'_\alpha\cap X\subseteq a_\alpha\cap X$ for every $\alpha<\lambda$.
+    Thus, $a_\alpha\not\perp X$ for every $\alpha<\lambda$.
+    Therefore, $X$ weakly separates $\mathcal A$ from $\mathcal B$.
+\end{proof}
+
+As discussed in the introduction, it is natural to ask whether the asymmetric version of $\mathfrak{adp}$, which we named $\mathfrak{adp}_2$, is also equal to $\mathfrak{dp}$.
+We show that it is equal to the well-studied cardinal $\mathfrak{ap}$.
+Consequently, in every model in which $\mathfrak{dp}<\mathfrak{ap}$, this variant is distinct from $\mathfrak{dp}$.
+\begin{thm}\label{thm:adp2}
+    In ZFC, $\mathfrak{adp}_2=\mathfrak{ap}$.
+\end{thm}
+\begin{proof}
+    It is clear that $\mathfrak{adp}_2\leq\mathfrak{ap}$. For the converse, assume $\kappa<\mathfrak{ap}$.
+    We show that $\kappa<\mathfrak{adp}_2$.
+
+    Let $\mathcal A, \mathcal B\subseteq[\omega]^{\aleph_0}$ be such that $\mathcal A\perp\mathcal B$, $\mathcal B$ is an almost disjoint family and $|\mathcal A\cup\mathcal B|\leq\kappa$.
+    We show that $\mathcal A$ is weakly separated from $\mathcal B$.
+    Let $\lambda=|\mathcal A|\leq \kappa$ and enumerate it as $\mathcal A=\{a_\alpha: \alpha<\lambda\}$.
+
+    Since $\mathfrak{ap}\leq\mathfrak c$, we have
+    $\lambda\leq\kappa<\mathfrak{ap}\leq\mathfrak c$.
+    Thus, by Theorem \ref{maintool}, there exists $(a'_\alpha: \alpha<\lambda)$ such that $a'_\alpha\subseteq a_\alpha$ and for every two distinct
+    $\alpha, \beta<\lambda$, $a'_\alpha\perp a'_\beta$. Let $\mathcal A'=\{a'_\alpha: \alpha<\lambda\}$. 
+    Then $\mathcal A'\perp \mathcal B$, $\mathcal A'\cup\mathcal B$ is an almost disjoint family and
+    $|\mathcal A'\cup\mathcal B|\leq \kappa<\mathfrak{ap}$, so $\mathcal A'$ is weakly separated from $\mathcal B$.
+
+    Let $X\subseteq \omega$ be such that $a'_\alpha\not\perp X$ for every $\alpha<\lambda$, and $b\perp X$ for every $b\in\mathcal B$.
+    Since $a'_\alpha\subseteq a_\alpha$, we have $a'_\alpha\cap X\subseteq a_\alpha\cap X$ for every $\alpha<\lambda$.
+    Thus, $a_\alpha\not\perp X$ for every $\alpha<\lambda$.
+    Therefore, $X$ weakly separates $\mathcal A$ from $\mathcal B$.
+\end{proof}

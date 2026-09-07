@@ -1,0 +1,297 @@
+\section{On almost disjointness and Urysohn $Q$-spaces}\label{sec:urysohn-q-spaces}
+As discussed in the introduction, the cardinal $\mathfrak q$ is the least cardinality of a non-$Q$-set of reals. For $f,g\in\omega^\omega$, write $f\leq^* g$ if $f(n)\leq g(n)$ for all but finitely many $n\in\omega$. It is known that $\mathfrak p\leq \mathfrak q\leq \mathfrak b$, where $\mathfrak b$ is the bounding number, namely the least cardinality of a family in $\omega^\omega$ that is not bounded by any single function with respect to $\leq^*$ \cite{miller1984special}.
+
+In \cite{banakh2023q}, Banakh and Bazylevych introduced the following separation-axiom variants of $\mathfrak q$ (with the classical invariant denoted by $\mathfrak q_0$ in their notation).
+
+\begin{definition}\label{def:q-variants}
+    The cardinal $\mathfrak q_1$ is the least cardinal $\kappa$ for which there exists a second-countable, $T_1$, non-$Q$-space of cardinality $\kappa$.
+
+    The cardinal $\mathfrak q_2$ is the least cardinal $\kappa$ for which there exists a second-countable, Hausdorff, non-$Q$-space of cardinality $\kappa$.
+
+    The cardinal $\mathfrak q_{2\frac{1}{2}}$ is the least cardinal $\kappa$ for which there exists a second-countable, Urysohn, non-$Q$-space of cardinality $\kappa$.
+\end{definition}
+
+They proved that $\mathfrak{adp}\leq \mathfrak q_1$. It is also immediate from the separation axioms that $\mathfrak q_1\leq \mathfrak q_2\leq \mathfrak q_{2\frac{1}{2}}\leq \mathfrak q$; together with $\mathfrak q\leq\mathfrak b$, this gives, by Theorem~\ref{thm:adp-equals-dp},
+\[
+\mathfrak p\leq \mathfrak{dp}=\mathfrak{adp}\leq \mathfrak q_1\leq \mathfrak q_2\leq \mathfrak q_{2\frac{1}{2}}\leq \mathfrak q\leq \mathfrak b.
+\]
+Banakh and Bazylevych asked whether any of these inequalities between different versions of $\mathfrak q$ can be strict.
+They also proved that every submetrizable space, that is, every space admitting a coarser metrizable topology, of cardinality less than $\mathfrak q$ is a $Q$-space.
+Thus, any separation of these cardinals from $\mathfrak q$ must use non-submetrizable examples \cite{banakh2023q}.
+
+More specifically, they asked whether $\mathfrak{ap}\leq \mathfrak q_2$.
+The relation between $\mathfrak{ap}$ and these new cardinals was left open, and it is natural to ask whether $\mathfrak{ap}$ is less than or equal to any of them.
+We show in this section that $\mathfrak{ap}\leq \mathfrak q_{2\frac{1}{2}}$.
+
+The first step is to extract, from the Urysohn separation axiom, a countable base arranged in finite levels.
+The levels still refine neighborhoods of each point, but distinct points can occur together in closures only finitely often.
+
+\begin{lemma}\label{lem:urysohn-ad-base}
+Let $X$ be a second-countable Urysohn space.
+Then $X$ has a countable base $\mathcal B$ and a sequence $(\mathcal B_n)_{n<\omega}$ such that:
+\begin{enumerate}[label=(\roman*)]
+    \item $\mathcal B=\bigcup_{n<\omega}\mathcal B_n$;
+    \item for every $n<\omega$, $\mathcal B_n$ is finite;
+    \item for every two distinct points $x,y\in X$, the set $\{n \in \omega: \exists B\in\mathcal B_n\,(x\in\overline B\text{ and }y\in\overline B)\}$ is finite;
+    \item for every $x\in X$ and every open neighborhood $O$ of $x$, there is some $m<\omega$ such that for every $n\geq m$ there is some $B\in\mathcal B_n$ such that $x\in B\subseteq O$ (so, in particular, $\mathcal B$ is a base for $X$);
+    \item for every $n<\omega$ and $x\in X$, there is some $B\in\mathcal B_n$ such that $x\in B$ (that is, $\mathcal B_n$ covers $X$).
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+Since $X$ is second-countable, $X^2\setminus\Delta$ is Lindelöf.
+Since $X$ is Urysohn, there exists a sequence of pairs of open subsets of $X$, $(U_k,V_k)_{k<\omega}$,
+such that
+\[
+    X^2\setminus\Delta
+    \subseteq \bigcup_{k<\omega} U_k\times V_k \qquad\text{and}\qquad \forall k<\omega\,\overline{U_k}\cap\overline{V_k}=\emptyset.
+\]
+
+For each $k<\omega$, let $C_k^0=X\setminus\overline{U_k}$ and $C_k^1=X\setminus\overline{V_k}$.
+Since $\overline{U_k}\cap\overline{V_k}=\emptyset$, the pair $\{C_k^0,C_k^1\}$ is an open cover of $X$.
+
+Fix a countable base $(G_m)_{m<\omega}$ for $X$ with $G_0=X$.
+For each $n<\omega$, define
+\[
+    \mathcal B_n=
+    \left\{
+        G_m\cap \bigcap_{k\leq n} C_k^{\varepsilon(k)}
+        :
+        m\leq n,\ \varepsilon\in 2^{n+1}
+    \right\}.
+\]
+
+Each $\mathcal B_n$ is a finite collection of open sets.
+Let $\mathcal B=\bigcup_{n<\omega}\mathcal B_n$.
+We first verify (iv).
+Let $x\in X$, and let
+$O\subseteq X$ be open with $x\in O$.
+Choose $m<\omega$ such that
+$x\in G_m\subseteq O$.
+Fix $n\geq m$.
+For every $k\leq n$, choose $\varepsilon(k)\in\{0,1\}$ such that
+$x\in C_k^{\varepsilon(k)}$. Then
+\[
+    x\in G_m\cap\bigcap_{k\leq n}C_k^{\varepsilon(k)}
+    \subseteq G_m\subseteq O,
+\]
+and this set belongs to $\mathcal B_n$.
+Thus, (iv) holds.
+The same argument with $G_0=X$ shows that (v) holds.
+
+It remains to verify (iii).
+Let $x\neq y$. Choose
+$k<\omega$ such that $(x,y)\in U_k\times V_k$.
+Then
+\[
+    x\notin\overline{C_k^0}
+    \quad\text{and}\quad
+    y\notin\overline{C_k^1}.
+\]
+Now let $n>k$ and $B\in\mathcal B_n$. By construction, either
+$B\subseteq C_k^0$ or $B\subseteq C_k^1$. In the first case,
+$x\notin\overline B$; in the second case, $y\notin\overline B$. Hence no
+member of $\mathcal B_n$, for $n>k$, has both $x$ and $y$ in its closure.
+
+Therefore,
+\[
+    \{n\in\omega:\exists B\in\mathcal B_n\,
+    (x\in\overline B\text{ and }y\in\overline B)\}
+    \subseteq \{0,\ldots,k\},
+\]
+which is finite.
+\end{proof}
+
+
+
+The preceding lemma turns Urysohn separation into a countable combinatorial object.
+This motivates the following tree variant of $\mathfrak{ap}$, which keeps track of weak separation for almost disjoint subtrees rather than for almost disjoint subsets of $\mathbb N$.
+
+In this paper, an $\omega$-tree is a rooted tree of height $\omega$ with finite levels, and subtrees are assumed to be nonempty and downward closed.  For $m<\omega$, write
+\[
+  T_m=\{t\in T:\htt(t)=m\}
+  \quad\text{and}\quad
+  T_{<m}=\{t\in T:\htt(t)<m\}.
+\]
+Two subtrees $S,R$ of $T$ are almost disjoint if $|S\cap R|<\omega$.
+A family of subtrees of $T$ is almost disjoint if any two distinct members are almost disjoint.
+An infinite subtree means a subtree with infinitely many nodes.
+
+Recall that a branch of a tree $T$ is a maximal linearly ordered subset of $T$.
+
+\begin{definition}\label{def:at}
+Let $\mathfrak{at}$ be the least cardinal $\kappa$ for which there is an
+$\omega$-tree $T$, an almost disjoint family $\mathcal X$ of infinite subtrees of $T$ with $|\mathcal X|\leq \kappa$, and a subcollection
+$\mathcal Y\subseteq\mathcal X$ such that $\mathcal Y$ cannot be weakly
+separated from $\mathcal X\setminus\mathcal Y$.
+Here a set $D\subseteq T$
+weakly separates $(\mathcal Y,\mathcal X\setminus\mathcal Y)$ if
+\[
+  \forall Y\in\mathcal Y\ |D\cap Y|=\omega,
+  \qquad \text{and}\qquad
+  \forall Z\in\mathcal X\setminus\mathcal Y\ |D\cap Z|<\omega.
+\]
+\end{definition}
+
+It follows immediately that $\mathfrak{ap}\leq \mathfrak{at}$, since every $\omega$-tree is countably infinite and, in the definition of $\mathfrak{ap}$, $\omega$ can be replaced by any infinite countable set.
+
+The next theorem gives the lower comparison with $\mathfrak q_1$.
+The idea is to topologize an almost disjoint family of branches and subtrees by declaring finite containment to be basic open information.
+
+\begin{thm}\label{thm:q1-below-at}
+$\mathfrak q_1\leq \mathfrak{at}$.
+\end{thm}
+\begin{proof}
+Let $\kappa$ be a cardinal such that $\kappa<\mathfrak q_1$.
+We show that $\kappa<\mathfrak{at}$.
+Since $\mathfrak q_1\leq\mathfrak q\leq\mathfrak b$, it follows that
+\[
+  \kappa<\mathfrak b.
+\]
+
+Let $T$ be an $\omega$-tree, and let $\mathcal X$ be an almost disjoint
+family of infinite subtrees of $T$ with $|\mathcal X|\leq\kappa$.
+Fix $\mathcal Y\subseteq\mathcal X$ and let $\mathcal Z=\mathcal X\setminus\mathcal Y$.
+
+For each $Y\in\mathcal Y$, choose an infinite branch $b_Y\subseteq Y$, which is possible by König's lemma. Put
+\[
+  H=\{b_Y:Y\in\mathcal Y\} \qquad \text{and}\qquad X=H\cup\mathcal Z.
+\]
+Thus, $X\subseteq [T]^\omega$, and $X$ is an almost disjoint family of infinite subsets of $T$ with $|X|\leq\kappa<\mathfrak q_1$.
+
+For each finite $F\subseteq T$, let $[F]=\{A\in X:F\subseteq A\}$.
+The family
+\[
+  \mathcal U=\{[F]:F\in[T]^{<\omega}\}
+\]
+is a base for a topology on $X$, since $[F]\cap[G]=[F\cup G]$ for every $F,G\in[T]^{<\omega}$.
+Thus, $X$ is second-countable because $T$ is countable.
+Moreover, $X$ is $T_1$: let $A,A'\in X$ be distinct. Since $X$ is
+almost disjoint and $A$ is infinite, choose $t\in A\setminus A'$.
+Then $[\{t\}]$ is an open set containing $A$ and not containing $A'$.
+Interchanging $A$ and $A'$, we obtain an open set containing $A'$ and not
+containing $A$.
+
+By the definition of $\mathfrak q_1$, $X$ is a $Q$-space. In particular, $H$ is a
+$G_\delta$ subset of $X$.
+
+Choose open sets $U_n\subseteq X$ such that
+\[
+  H=\bigcap_{n<\omega}U_n.
+\]
+Replacing $U_n$ by $\bigcap_{i\leq n}U_i$, we may assume that $U_{n+1}\subseteq U_n$ for every $n<\omega$.
+
+Fix $b\in H$ and $n<\omega$. Since $b\in U_n$ and $U_n$ is open, there is
+a finite set $F\subseteq b$ such that $b\in[F]\subseteq U_n$.
+As $b$ is a branch, there is $m<\omega$ such that, whenever $t\in b$ and
+$\htt(t)\geq m$, the node $t$ lies above every member of
+$F$. Since every element of $X$ is downward closed, any $A\in X$ with
+$t\in A$ must contain $F$. Hence
+\[
+  [\{t\}]\subseteq[F]\subseteq U_n.
+\]
+
+Define $f_b\in\omega^\omega$ by letting $f_b(n)$ be the least $m<\omega$
+such that
+\[
+  \forall t\in b\,
+  \bigl(\htt(t)\geq m\Rightarrow [\{t\}]\subseteq U_n\bigr).
+\]
+As $|\{f_b:b\in H\}|\leq \kappa<\mathfrak b$, the family $\{f_b:b\in H\}$ is bounded in $\omega^\omega$ with respect to $\leq^*$.
+Let $g\in\omega^\omega$ be such that $f_b\leq^* g$ for every $b\in H$.
+Increasing $g$ pointwise if necessary, we may assume that $g$ is strictly increasing.
+Define
+\[
+  D=\{t\in T:\exists n<\omega\,
+      (\htt(t)=g(n)\text{ and }[\{t\}]\subseteq U_n)\}.
+\]
+
+We show that $D$ weakly separates $\mathcal Y$ from $\mathcal Z$.
+
+First fix $Y\in\mathcal Y$, and let $b=b_Y$. For all but finitely many
+$n<\omega$, $f_b(n)\leq g(n)$.
+Let $t_n$ be the unique node of $b$ on level $g(n)$. By the definition of
+$f_b(n)$, for all but finitely many $n$ we have $[\{t_n\}]\subseteq U_n$.
+
+Thus, $t_n\in D\cap b$ for infinitely many $n$. Since $g$ is strictly
+increasing, these nodes are distinct.
+Therefore $|D\cap b|=\omega$.
+As $b=b_Y\subseteq Y$, it follows that $|D\cap Y|=\omega$.
+
+Now fix $Z\in\mathcal Z$.
+Since $Z\notin H$ and $H=\bigcap_{n<\omega}U_n$, there is $N<\omega$ such that $Z\notin U_N$.
+As the sequence $(U_n)_{n<\omega}$ is decreasing, we have $Z\notin U_n$ for every $n\geq N$.
+
+Suppose that $t\in Z\cap D$ and $\htt(t)=g(n)$ for some
+$n\geq N$.
+By the definition of $D$, $[\{t\}]\subseteq U_n$.
+But $t\in Z$, so $Z\in[\{t\}]$, and hence $Z\in U_n$, a contradiction.
+Therefore
+\[
+  Z\cap D\subseteq \bigcup_{n<N}T_{g(n)}.
+\]
+Each level of $T$ is finite, so $|Z\cap D|<\omega$.
+Thus, $D$ weakly separates $\mathcal Y$ from $\mathcal Z$.
+
+As $T$, $\mathcal X$ and $\mathcal Y$ were arbitrary, we conclude that $\kappa<\mathfrak{at}$.
+\end{proof}
+
+
+\begin{lemma}\label{lem:at-below-q212}
+$\mathfrak{at}\leq \mathfrak q_{2\frac{1}{2}}$.
+Consequently, $\mathfrak{ap}\leq \mathfrak q_{2\frac{1}{2}}$.
+\end{lemma}
+
+\begin{proof}
+Let $X$ be a second-countable Urysohn space with $|X|<\mathfrak{at}$.  We show
+that every subset of $X$ is a $G_\delta$ subset of $X$.
+
+Apply Lemma~\ref{lem:urysohn-ad-base} to get a countable sequence of finite
+covers of $X$, $(\mathcal B_n:n<\omega)$, as in the statement of the lemma.
+Let
+\[
+  T=\bigcup_{n<\omega}\prod_{k<n}\mathcal B_k,
+\]
+ordered by inclusion (that is, initial-segment extension).
+This is a countable tree with finite levels.
+For $x\in X$ put
+\[
+  T_x=\{t\in T: \forall k<|t|\ (x\in t(k))\}.
+\]
+Each $T_x$ is an infinite subtree of $T$.  If $x\neq y$, then by
+Lemma~\ref{lem:urysohn-ad-base} there is $m<\omega$ such that, for all
+$n\geq m$, no member of $\mathcal B_n$ contains both $x$ and $y$ in its closure,
+and hence no member of $\mathcal B_n$ contains both $x$ and $y$.  Therefore,
+$T_x\cap T_y$ has height at most $m$ and is finite.  Thus,
+\[
+  \mathcal T_X=\{T_x:x\in X\}
+\]
+is an almost disjoint family of subtrees of $T$.
+The map $x\mapsto T_x$ is injective, since $T_x\cap T_y$ is finite for
+$x\neq y$, whereas each $T_x$ is infinite.
+
+Fix $A\subseteq X$.
+Since $|\mathcal T_X|<\mathfrak{at}$, there exists $D\subseteq T$ such that
+\[
+   \forall x\in A\ |D\cap T_x|=\omega,
+   \qquad \text{and}\qquad
+   \forall y\in X\setminus A\ |D\cap T_y|<\omega.
+\]
+
+For $t\in T$ let $O_t=\bigcap_{k<|t|} t(k)$, with the convention
+$O_\emptyset=X$.  Also, for each finite $F\subseteq D$ define
+$W_F=\bigcup_{t\in D\setminus F} O_t$.
+Each $W_F$ is open, and $[D]^{<\omega}$ is countable.  We claim that
+\[
+  A=\bigcap_{F\in[D]^{<\omega}} W_F.
+\]
+If $x\in A$ and $F\in[D]^{<\omega}$, choose
+$t\in(D\cap T_x)\setminus F$.  Then $x\in O_t\subseteq W_F$.  Conversely, let
+$y\in X\setminus A$ and put $F_y=D\cap T_y$.  This set is finite.  If
+$t\in D\setminus F_y$, then $t\notin T_y$, so for some $k<|t|$ we have
+$y\notin t(k)$, and hence $y\notin O_t$.  Thus $y\notin W_{F_y}$.
+
+Therefore every subset of $X$ is a $G_\delta$ subset of $X$.  Applying this to
+complements, every subset is also an $F_\sigma$ subset of $X$.  Hence $X$ is a
+$Q$-space.
+\end{proof}

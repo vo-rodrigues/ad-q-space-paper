@@ -1,0 +1,155 @@
+\section{Introduction}
+
+Cardinal characteristics of the continuum are cardinals between $\aleph_1$,
+the first uncountable cardinal, and $\mathfrak c$, the cardinality of the
+continuum. They measure combinatorial properties of the real numbers; see
+\cite{blass2009combinatorial} for background.
+
+The symbol $\omega$ denotes the set of natural numbers, which includes $0$ and is identified with the first infinite ordinal.
+
+The cardinal characteristics $\mathfrak{ap}$ and $\mathfrak{dp}$, both related
+to the pseudointersection number $\mathfrak p$, were studied by Brendle in
+\cite{brendle1999dow}. We recall the relevant definitions.
+
+\begin{itemize}
+    \item For a set $S$, $[S]^{<\omega}$ denotes the collection of all finite subsets of $S$, and $[S]^\omega$ denotes the collection of all countably infinite subsets of $S$.
+    \item Sets $a,b\in[\omega]^{\aleph_0}$ are orthogonal, written $a\perp b$, if $a\cap b$ is finite.
+    \item Collections $\mathcal A,\mathcal B\subseteq[\omega]^{\aleph_0}$ are orthogonal, written $\mathcal A\perp\mathcal B$, if $a\perp b$ for every $a\in\mathcal A$ and $b\in\mathcal B$.
+    \item If $\mathcal A,\mathcal B\subseteq[\omega]^{\aleph_0}$, then $\mathcal A$ is weakly separated from $\mathcal B$ if there exists $X\subseteq\omega$ such that $a\not\perp X$ for every $a\in\mathcal A$, and $b\perp X$ for every $b\in\mathcal B$. In this case, we say that $X$ weakly separates $(\mathcal A,\mathcal B)$.
+    \item $\mathcal A\subseteq[\omega]^{\aleph_0}$ is an almost disjoint family if $a\perp b$ for every two distinct $a,b\in\mathcal A$.
+\end{itemize}
+
+Our convention regarding the order of weak separation follows Banakh and Bazylevych \cite{banakh2023q}.  It is the reverse of Brendle's convention for ordered pairs \cite{brendle1999dow}.
+
+Since weak separation is not symmetric, the order of the two families matters in
+the following definitions.
+
+\begin{itemize}
+    \item $\mathfrak{dp}$ is the least cardinal $\kappa$ for which there exist $\mathcal A,\mathcal B\subseteq[\omega]^{\aleph_0}$ such that $\mathcal A\perp\mathcal B$, $|\mathcal A\cup\mathcal B|=\kappa$, and $\mathcal A$ is not weakly separated from $\mathcal B$.
+    \item $\mathfrak{ap}$ is the least cardinal $\kappa$ for which there exist $\mathcal A,\mathcal B\subseteq[\omega]^{\aleph_0}$ such that $\mathcal A\perp\mathcal B$, $|\mathcal A\cup\mathcal B|=\kappa$, $\mathcal A\cup\mathcal B$ is an almost disjoint family, and $\mathcal A$ is not weakly separated from $\mathcal B$.
+\end{itemize}
+
+It is immediate that $\mathfrak{dp}\leq\mathfrak{ap}$.
+This inequality can be strict: Brendle showed by forcing that
+$\mathfrak{dp}<\mathfrak{ap}$ is consistent \cite{brendle1999dow}.
+Both cardinals are greater than or equal to $\mathfrak p$, and consistently
+strictly greater than $\mathfrak p$ \cite{brendle1999dow}. Here $\mathfrak p$ is the least
+cardinality of a centered family of infinite subsets of $\omega$ with no
+pseudointersection; that is, every nonempty finite subfamily has infinite
+intersection, but there is no single infinite set $P$ such that
+$P\setminus A$ is finite for every member $A$ of the family.
+
+If $X$ is a topological space and $Y\subseteq X$, we say that $Y$ is a $G_\delta$ subset of $X$ if there are open subsets $(U_n)_{n \in \omega}$ of $X$ such that $Y=\bigcap_{n<\omega} U_n$.
+Dually, $Y$ is an $F_\sigma$ subset of $X$ if it is a countable union of closed subsets of $X$.
+We say that $X$ has a $G_\delta$-diagonal if the set $\Delta_X=\{(x,x):x\in X\}$ is a $G_\delta$ as a subset of $X^2$.
+
+A $Q$-set is classically defined as an uncountable set of reals all of whose subsets are
+$G_\delta$ sets in the subspace topology (equivalently, all of its subsets are
+$F_\sigma$ sets in the subspace topology) \cite{miller1984special,fleissner1980qsets}. The existence of $Q$-sets is independent of the Zermelo--Fraenkel set theory with the axiom of choice (ZFC) \cite{fleissner1980qsets,miller1984special}. Indeed, if
+there is a $Q$-set, then it has at least $2^{\aleph_1}$ subsets, all realized as
+traces of $G_\delta$ subsets of the reals. Since there are only $\mathfrak c$
+many $G_\delta$ subsets of the reals, no $Q$-set can exist under the Continuum
+Hypothesis (CH). On the other hand, every set of reals of cardinality less than
+$\mathfrak{ap}$ has all of its subsets $G_\delta$ in the subspace topology
+\cite{brendle1999dow}; hence, if
+$\aleph_1<\mathfrak{ap}=\mathfrak c$, as happens for example under Martin's
+Axiom together with the negation of CH \cite{blass2009combinatorial}, then $Q$-sets
+exist.
+
+$Q$-sets are also related to the separable case of the Normal Moore Space
+Conjecture: a non-metrizable separable normal Moore space exists if and only if
+there is a $Q$-set \cite{heath1964screenability}.
+
+The smallest cardinality of a non-$Q$-set is denoted by $\mathfrak q$
+\cite{miller1984special,brendle1999dow}.
+More generally, a $Q$-space is a topological space in which every subset is a
+$G_\delta$ set. In this terminology, $\mathfrak q$ is the least cardinality of
+a metrizable separable non-$Q$-space, equivalently, of a regular second-countable
+non-$Q$-space.
+
+These notions have been studied in more general settings. There are two natural
+directions to pursue: weaken regularity to weaker separation axioms, or weaken
+second countability. In \cite{banakh2023q}, Banakh and Bazylevych followed the
+first direction and defined the cardinals $\mathfrak q_1$, $\mathfrak q_2$ and
+$\mathfrak q_{2\frac{1}{2}}$ by considering second-countable non-$Q$-spaces
+which are, respectively, $T_1$, Hausdorff and Urysohn. Recall that a topological
+space is $T_1$ if every singleton is closed; Hausdorff, or $T_2$, if every two
+distinct points have disjoint neighborhoods; and Urysohn, or
+$T_{2\frac{1}{2}}$, if every two distinct points have disjoint closed
+neighborhoods.
+
+Banakh and Bazylevych also introduced a cardinal $\mathfrak{adp}$, which lies
+between $\mathfrak{dp}$ and $\mathfrak{ap}$ and is useful in the study of
+$Q$-spaces.
+
+\begin{definition}
+    $\mathfrak{adp}$ is the least cardinal $\kappa$ for which there exist $\mathcal A,\mathcal B\subseteq[\omega]^{\aleph_0}$ such that $\mathcal A\perp\mathcal B$, $|\mathcal A\cup\mathcal B|=\kappa$, $\mathcal A$ is an almost disjoint family, and $\mathcal A$ is not weakly separated from $\mathcal B$.
+\end{definition}
+
+They asked the following.
+
+\begin{prob}[{\cite[Problem 12]{banakh2023q}}] Is $\mathfrak{adp}=\mathfrak{dp}$? Is $\mathfrak{adp}=\mathfrak{ap}$?
+\end{prob}
+
+In Section~\ref{sec:adp}, we answer the first part by proving
+$\mathfrak{adp}=\mathfrak{dp}$ in ZFC. Together with the consistency of
+$\mathfrak{dp}<\mathfrak{ap}$, this shows that
+$\mathfrak{adp}=\mathfrak{ap}$ is not provable in ZFC.
+
+The asymmetry of weak separation also suggests asking what happens if the
+almost disjointness requirement in the definition of $\mathfrak{adp}$ is imposed
+on $\mathcal B$ instead of on $\mathcal A$.
+
+\begin{definition}
+    $\mathfrak{adp}_2$ is the least cardinal $\kappa$ for which there exist $\mathcal A,\mathcal B\subseteq[\omega]^{\aleph_0}$ such that $\mathcal A\perp\mathcal B$, $|\mathcal A\cup\mathcal B|=\kappa$, $\mathcal B$ is an almost disjoint family, and $\mathcal A$ is not weakly separated from $\mathcal B$.
+\end{definition}
+
+Using the same technique, we show that $\mathfrak{adp}_2=\mathfrak{ap}$.
+Thus, in every model in which $\mathfrak{dp}<\mathfrak{ap}$, this modified
+cardinal is distinct from $\mathfrak{dp}$.
+
+Banakh and Bazylevych also asked:
+
+\begin{prob}[{\cite[Problem 11]{banakh2023q}}] Is $\mathfrak{ap}\leq\mathfrak q_2$?
+\end{prob}
+
+This problem remains open, but we prove several related bounds.
+In Section~\ref{sec:urysohn-q-spaces}, we introduce a tree analogue of
+$\mathfrak{ap}$, denoted by $\mathfrak{at}$. This cardinal is obtained by
+replacing almost disjoint families of subsets of $\omega$ with almost
+disjoint families of infinite subtrees of an $\omega$-tree. It satisfies
+$\mathfrak{ap}\leq\mathfrak{at}$, and we prove
+\[
+    \mathfrak q_1\leq\mathfrak{at}\leq \mathfrak q_{2\frac{1}{2}}.
+\]
+In particular, this gives the ZFC bound
+\[
+    \mathfrak{ap}\leq \mathfrak q_{2\frac{1}{2}}.
+\]
+
+The proof of the Urysohn bound shows that the extra separation available in
+Urysohn spaces can be encoded by almost disjoint subtrees. In
+Section~\ref{sec:small-diagonals}, we isolate another form of this extra
+structure by considering Hausdorff spaces with $G_\delta$-diagonals. Let
+$\mathfrak q_{2\Delta}$ be the least cardinality of a second-countable
+Hausdorff non-$Q$-space with a $G_\delta$-diagonal. We prove
+\[
+    \mathfrak{ap}\leq \mathfrak q_{2\Delta}.
+\]
+Thus, every second-countable Hausdorff space of cardinality $<\mathfrak{ap}$
+with a $G_\delta$-diagonal is a $Q$-space. We also record that every
+second-countable Urysohn space has a $G_\delta$-diagonal, and that every
+second-countable $T_i$ space of cardinality $<\mathfrak q_i$, for
+$i\in\{1,2\}$, has a $G_\delta$-diagonal.
+
+Finally, in Section~\ref{sec:ap-below-at-model}, we show that the tree cardinal
+$\mathfrak{at}$ is not simply another presentation of $\mathfrak{ap}$.
+Assuming the Generalized Continuum Hypothesis (GCH), for every regular cardinal $\lambda>\omega_1$ we construct a ccc
+forcing extension in which
+\[
+    \mathfrak{ap}=\omega_1<
+    \mathfrak{at}=\mathfrak q_{2\frac{1}{2}}=\mathfrak c=\lambda.
+\]
+In particular, $\mathfrak{ap}<\mathfrak{at}$ is consistent.
+The construction is based on Brendle's model for $\mathfrak{ap}<\mathfrak q$
+and uses forcing notions associated with almost disjoint families of subtrees.

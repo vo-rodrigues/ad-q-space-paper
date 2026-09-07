@@ -1,0 +1,179 @@
+\section{Concluding remarks}
+
+In this paper, we settled Question~12 of \cite{banakh2023q} by proving that
+$\mathfrak{adp}=\mathfrak{dp}$.
+We also obtained the analogous identity for the dual asymmetric version of this
+cardinal, $\mathfrak{adp}_2=\mathfrak{ap}$.
+
+Moreover, we obtained a positive partial answer to Question~11 of
+\cite{banakh2023q} by proving $\mathfrak{ap}\leq \mathfrak q_{2\frac{1}{2}}$.
+The corresponding Hausdorff version remains open, namely whether
+$\mathfrak{ap}\leq\mathfrak q_2$.
+
+We also considered the intermediate Hausdorff invariant
+$\mathfrak q_{2\Delta}$, defined by requiring a $G_\delta$-diagonal, and
+proved $\mathfrak{ap}\leq\mathfrak q_{2\Delta}$.
+
+The tree cardinal $\mathfrak{at}$ introduced in Definition~\ref{def:at} gives a
+more precise form of this Urysohn bound.  We proved
+\[
+  \mathfrak q_1\leq \mathfrak{at}\leq \mathfrak q_{2\frac{1}{2}},
+\]
+and, since $\mathfrak{ap}\leq\mathfrak{at}$, the cardinal $\mathfrak{at}$
+is a common upper bound for both $\mathfrak q_1$ and $\mathfrak{ap}$ which is
+itself bounded by $\mathfrak q_{2\frac{1}{2}}$.
+
+Finally, the forcing construction in Section~\ref{sec:ap-below-at-model}
+shows that $\mathfrak{at}$ can consistently be strictly larger than
+$\mathfrak{ap}$.
+
+The inequalities and equalities currently known among the cardinals considered in
+this paper are summarized in Figure~\ref{fig:q-cardinals-diagram}.  An arrow
+$\kappa\to\lambda$ means $\kappa\leq\lambda$.
+The relevant references are listed in the table below.
+
+\begin{center}
+\makebox[\textwidth][c]{%
+\begin{tikzpicture}[
+  node distance=10mm and 9mm,
+  cardinal/.style={
+    draw,
+    rounded corners,
+    inner xsep=5pt,
+    inner ysep=3pt,
+    align=center,
+    font=\small
+  },
+  eqcard/.style={
+    cardinal,
+    double,
+    double distance=0.7pt
+  },
+  arrow/.style={-{Latex[length=2mm]}, thick}
+]
+
+\node[cardinal] (p) {$\mathfrak p$};
+\node[eqcard, right=of p] (dp) {$\mathfrak{dp}=\mathfrak{adp}$};
+\node[cardinal, right=of dp] (qone) {$\mathfrak q_1$};
+\node[cardinal, right=of qone] (qtwo) {$\mathfrak q_2$};
+\node[cardinal, right=of qtwo] (qtwodelta) {$\mathfrak q_{2\Delta}$};
+\node[cardinal, right=of qtwodelta] (qtwohalf) {$\mathfrak q_{2\frac{1}{2}}$};
+
+\node[eqcard, below=of dp] (ap) {$\mathfrak{ap}=\mathfrak{adp}_2$};
+\node[cardinal, below=of qtwo] (at) {$\mathfrak{at}$};
+\node[cardinal, right=of qtwohalf] (q) {$\mathfrak q$};
+
+\draw[arrow] (p) -- (dp);
+\draw[arrow] (dp) -- (qone);
+\draw[arrow] (qone) -- (qtwo);
+\draw[arrow] (qtwo) -- (qtwodelta);
+\draw[arrow] (qtwodelta) -- (qtwohalf);
+\draw[arrow] (qtwohalf) -- (q);
+
+\draw[arrow] (dp) -- (ap);
+\draw[arrow] (ap) -- (at);
+\draw[arrow] (ap.west) to[out=165,in=150,looseness=2.25] (qtwodelta.north);
+\draw[arrow] (qone) -- (at);
+\draw[arrow] (at) -- (qtwohalf);
+
+\path[use as bounding box]
+  (current bounding box.south west) rectangle
+  ([xshift=12mm]current bounding box.north east);
+
+\end{tikzpicture}
+}
+
+\captionof{figure}{Known inequalities among the cardinals considered in this paper.}
+\label{fig:q-cardinals-diagram}
+\end{center}
+
+\begin{center}
+\begin{tabular}{@{}ll@{}}
+\toprule
+\textbf{Relation} & \textbf{Reference} \\
+\midrule
+
+$\mathfrak p\leq\mathfrak{dp}$ 
+& Brendle \cite{brendle1999dow}. \\
+
+$\mathfrak{dp}\leq\mathfrak{ap}$ 
+& Brendle \cite{brendle1999dow}. \\
+
+$\mathfrak{dp}=\mathfrak{adp}$ 
+& Theorem~\ref{thm:adp-equals-dp}. \\
+
+$\mathfrak{adp}_2=\mathfrak{ap}$ 
+& Theorem~\ref{thm:adp2}. \\
+
+$\mathfrak{adp}\leq\mathfrak q_1$ 
+& Banakh--Bazylevych \cite{banakh2023q}. \\
+
+$\mathfrak q_1\leq\mathfrak q_2$
+& Banakh--Bazylevych \cite{banakh2023q}. \\
+
+$\mathfrak q_2\leq\mathfrak q_{2\Delta}$ 
+& By definition of $\mathfrak q_{2\Delta}$. \\
+
+$\mathfrak q_{2\Delta}\leq\mathfrak q_{2\frac{1}{2}}$ 
+& Lemma~\ref{lem:second-countable-urysohn-gdelta-diagonal}. \\
+
+$\mathfrak q_{2\frac{1}{2}}\leq \mathfrak q$ 
+& Banakh--Bazylevych \cite{banakh2023q}. \\
+
+$\mathfrak{ap}\leq\mathfrak{at}$ 
+& Definition~\ref{def:at}. \\
+
+$\mathfrak{ap}\leq\mathfrak q_{2\Delta}$ 
+& Theorem~\ref{thm:ap-leq-q2delta}. \\
+
+$\mathfrak q_1\leq\mathfrak{at}$ 
+& Theorem~\ref{thm:q1-below-at}. \\
+
+$\mathfrak{at}\leq\mathfrak q_{2\frac{1}{2}}$ 
+& Lemma~\ref{lem:at-below-q212}. \\
+
+\bottomrule
+\end{tabular}
+\end{center}
+
+The following table records the known consistency results yielding strict
+inequalities among the cardinals appearing in the diagram.
+
+\begin{center}
+\begin{tabular}{@{}ll@{}}
+\toprule
+\textbf{Consistent inequality} & \textbf{Reference} \\
+\midrule
+
+$\mathfrak p<\mathfrak{dp}$ 
+& Dow, as quoted in Brendle \cite{brendle1999dow}. \\
+
+$\mathfrak{dp}<\mathfrak{ap}$ 
+& Brendle \cite[Theorem~A]{brendle1999dow}. \\
+
+$\mathfrak{ap}<\mathfrak{at}$ 
+& Theorem~\ref{thm:consistent-ap-below-q212}. \\
+
+\bottomrule
+\end{tabular}
+\end{center}
+
+The remaining unclear part of the diagram concerns the comparisons between
+$\mathfrak{ap}$ and $\mathfrak q_1,\mathfrak q_2$, and between
+$\mathfrak{at}$ and $\mathfrak q_2,\mathfrak q_{2\Delta}$.
+We therefore record the following questions.
+
+\begin{prob}\label{prob:remaining-q-cardinals}\hfill
+    \begin{itemize}
+        \item Is $\mathfrak{at}\leq \mathfrak q_2$?
+        \item Is $\mathfrak{at}\leq \mathfrak q_{2\Delta}$?
+        \item Is $\mathfrak{ap}\leq \mathfrak q_2$?
+        \item Is $\mathfrak q_1\leq \mathfrak{ap}$?
+        \item Is $\mathfrak{ap}\leq \mathfrak q_1$?
+    \end{itemize}
+\end{prob}
+\subsection*{Acknowledgements}
+This study was financed, by the São Paulo Research Foundation (FAPESP), Brazil. Process Number 2025/07302-0.
+
+\subsection*{Declaration of generative AI and AI-assisted technologies}
+During the preparation of this work, the author used ChatGPT 5.5 for grammar revision, proofreading, checking the mathematical arguments, and obtaining suggestions and insights. The author reviewed and edited the AI-assisted output as needed and takes full responsibility for the content of the published article.

@@ -1,0 +1,56 @@
+\documentclass{article}
+\usepackage{amsmath, amsfonts, amsthm, amssymb}
+\usepackage{enumitem}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{geometry}
+\usepackage[english]{babel}
+\usepackage[affil-it]{authblk}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,positioning}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{caption}
+\usepackage{import}
+\usepackage{bbm}
+\title{Almost Disjointness Principles and $Q$-Space Cardinals}
+\date{}
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}
+\newtheorem{prob}[definition]{Problem}
+\newtheorem{thm}[definition]{Theorem}
+\newtheorem{lemma}[definition]{Lemma}
+\newtheorem{remark}[definition]{Remark}
+
+\DeclareMathOperator{\dom}{dom}
+\DeclareMathOperator{\Col}{Col}
+\DeclareMathOperator{\htt}{ht}
+\author{Vinicius de Oliveira Rodrigues\thanks{Electronic address: \texttt{vinior@ime.usp.br}}}
+\affil{University of São Paulo}
+
+\begin{document}\maketitle
+
+\begin{abstract}
+    Banakh and Bazylevych introduced separation-axiom variants $\mathfrak q_i$, for $i=1,2,2\frac{1}{2}$, of the cardinal $\mathfrak q$, together with a cardinal $\mathfrak{adp}$ lying between $\mathfrak{dp}$ and $\mathfrak{ap}$.
+    They asked whether $\mathfrak{adp}$ coincides with either of these two cardinals.
+    We prove in ZFC that $\mathfrak{adp}=\mathfrak{dp}$.
+    We define a dual variant $\mathfrak{adp}_2$ and show that $\mathfrak{adp}_2=\mathfrak{ap}$.
+
+    We further study the relation between $\mathfrak{ap}$ and the weakened $Q$-space cardinals.
+    We introduce a tree analogue $\mathfrak{at}$ of $\mathfrak{ap}$ and prove $\mathfrak q_1\leq\mathfrak{at}\leq\mathfrak q_{2\frac{1}{2}}$, hence $\mathfrak{ap}\leq\mathfrak q_{2\frac{1}{2}}$.
+    Assuming the Generalized Continuum Hypothesis, we construct ccc forcing extensions with $\mathfrak{ap}=\omega_1<\mathfrak{at}=\mathfrak q_{2\frac{1}{2}}=\mathfrak c$, so $\mathfrak{ap}<\mathfrak{at}$ is consistent with ZFC.
+
+    MSC: Primary 03E17, 03E05. Secondary 03E35, 54A35, 54D10.
+\end{abstract}
+
+\subimport{sections/}{introduction.tex}
+\subimport{sections/}{adp.tex}
+\subimport{sections/}{basics.tex}
+\subimport{sections/}{diagonal.tex}
+\subimport{sections/}{forcing.tex}
+\subimport{sections/}{conclusion.tex}
+\bibliographystyle{plain}
+\bibliography{includes/biblio.bib}
+\end{document}

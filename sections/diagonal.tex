@@ -1,0 +1,185 @@
+\section{$G_\delta$ diagonals}
+\label{sec:small-diagonals}
+
+The preceding sections show that the Urysohn assumption gives enough
+combinatorial structure to obtain the bound
+$\mathfrak{at}\leq\mathfrak q_{2\frac{1}{2}}$, and hence $\mathfrak{ap}\leq\mathfrak q_{2\frac{1}{2}}$.
+
+It is natural to ask where $\mathfrak q_2$ stands relative to $\mathfrak{ap}$.
+We do not answer this question here, but, as we will see, a $G_\delta$-diagonal supplies the diagonal separation needed in the Hausdorff context.
+
+\begin{definition}
+The cardinal $\mathfrak q_{2\Delta}$ is the least cardinality of a
+second-countable Hausdorff non-$Q$-space with a $G_\delta$-diagonal.
+\end{definition}
+
+The cardinal $\operatorname{cov}(\mathcal M)$, where $\mathcal M$ is the ideal of meager subsets of $\mathbb R$ (countable unions of nowhere dense sets), is the least cardinality of a subfamily of $\mathcal M$ whose union is $\mathbb R$.
+For the next lemma, recall that $\operatorname{cov}(\mathcal M)$ is the least cardinality of a collection $\mathcal F\subseteq \omega^\omega$ such that there is no $g\in\omega^\omega$ satisfying
+\[
+  \forall f\in\mathcal F\quad |\{n<\omega:f(n)=g(n)\}|=\omega .
+\]
+For a proof, see \cite[Theorem~5.9]{blass2009combinatorial}.
+
+\begin{lemma}\label{lem:selection-below-covM}
+Let $\kappa<\operatorname{cov}(\mathcal M)$.  Let $Y$ be a set with
+$|Y|\leq\kappa$, and let $(\mathcal U_n)_{n<\omega}$ be a sequence of
+countable covers of $Y$.  Then there exist $U_n\in\mathcal U_n$, for
+$n<\omega$, such that
+\[
+  \forall y\in Y\quad |\{n<\omega:y\in U_n\}|=\omega .
+\]
+\end{lemma}
+
+\begin{proof}
+For each $n<\omega$, enumerate $\mathcal U_n$ as
+$\{U^n_i:i<\omega\}$, repeating members if necessary.  For each $y\in Y$, define $f_y\in\omega^\omega$
+by choosing $f_y(n)$ so that $y\in U^n_{f_y(n)}$.
+
+Since $|\{f_y:y\in Y\}|<\operatorname{cov}(\mathcal M)$, by the
+characterization of $\operatorname{cov}(\mathcal M)$ mentioned above, there exists
+$g\in\omega^\omega$ such that
+\[
+  |\{n<\omega:g(n)=f_y(n)\}|=\omega
+\]
+for every $y\in Y$.  Put $U_n=U^n_{g(n)}$.  Then, for each $y\in Y$,
+$y\in U_n$ for infinitely many $n$.
+\end{proof}
+
+We do not know whether ZFC proves a comparison between $\mathfrak q_2$ and either $\mathfrak{ap}$ or $\mathfrak{at}$.
+The next theorem shows that adding a $G_\delta$-diagonal to the Hausdorff hypothesis is already enough to recover the $\mathfrak{ap}$ bound.
+
+\begin{thm}\label{thm:ap-leq-q2delta} $\mathfrak{ap}\leq\mathfrak q_{2\Delta}$.
+\end{thm}
+
+\begin{proof}
+Let $X$ be a second-countable Hausdorff space with a
+$G_\delta$-diagonal, and assume that $|X|<\mathfrak{ap}$.  We prove
+that every subset of $X$ is a $G_\delta$ subset of $X$.
+
+As $\mathfrak{ap}\leq\operatorname{cov}(\mathcal M)$ (see \cite{brendle1999dow}), we have $|X|<\operatorname{cov}(\mathcal M)$.
+Fix a countable base $\mathcal B$ for $X$.  Since $X$ has a
+$G_\delta$-diagonal, there is a decreasing sequence $(W_n)_{n<\omega}$ of
+open subsets of $X^2$ such that
+\[
+  \Delta_X=\bigcap_{n<\omega} W_n.
+\]
+
+For each $n<\omega$, define $\mathcal B_n=
+  \{G \in \mathcal B:G\times G\subseteq W_n\}$.
+  Clearly, $\mathcal B_n$ is a cover of $X$.
+Apply Lemma~\ref{lem:selection-below-covM} to the sequence
+$(\mathcal B_n)_{n\in\omega}$.  We obtain sets $V_n\in\mathcal B_n$, for
+$n<\omega$, such that
+\[
+  \forall x\in X\quad \bigl|\{n<\omega:x\in V_n\}\bigr|=\omega.
+\]
+In particular, $V_n\times V_n\subseteq W_n$ for every $n \in \omega$.
+For each $x\in X$, define
+\[
+  H_x=\{n<\omega:x\in V_n\} \qquad \text{and} \qquad \mathcal H=\{H_x:x\in X\}.
+\]
+
+Each $H_x$ is infinite by the choice of the sets $V_n$.
+We claim that $\mathcal H$ is an almost disjoint family.
+Let $x, y$ be distinct elements of $X$.  Since
+$\Delta_X=\bigcap_{n<\omega}W_n$, there is $N<\omega$ such that $(x,y)\notin W_N$.
+As the sequence $(W_n)_{n<\omega}$ is decreasing, $(x,y)\notin W_n$ for
+all $n\geq N$.  If $n\in H_x\cap H_y$, then $x,y\in V_n$, and hence
+$(x,y)\in V_n\times V_n\subseteq W_n$.
+
+Thus, $n<N$.  Therefore $H_x\cap H_y\subseteq N$, so $H_x\cap H_y$ is
+finite and the map $x\mapsto H_x$ is injective.
+
+Now let $A\subseteq X$.  Since $|\mathcal H|=|X|<\mathfrak{ap}$, the
+set $\mathcal H_A=\{H_x:x\in A\}$
+can be weakly separated from $\mathcal H_{X\setminus A}=\{H_y:y\in X\setminus A\}$.
+Thus, there exists $D\subseteq\omega$ such that
+\[
+  \forall x\in A\quad |D\cap H_x|=\omega \qquad \text{and} \qquad \forall y\in X\setminus A\quad |D\cap H_y|<\omega.
+\]
+
+For each finite $F\subseteq D$, define the open set $O_F=\bigcup_{n\in D\setminus F}V_n$.
+We show that $A=\bigcap_{F\in[D]^{<\omega}}O_F$.
+
+First let $x\in A$, and let $F\in[D]^{<\omega}$.
+Since $D\cap H_x$ is infinite, there is $n\in (D\cap H_x)\setminus F$.
+Then $x\in V_n\subseteq O_F$.
+Therefore, $x\in \bigcap_{F\in[D]^{<\omega}}O_F$.
+
+Conversely, let $y\in X\setminus A$.
+Put $F_y=D\cap H_y$, which is finite.
+If $n\in D\setminus F_y$, then $n\notin H_y$, and
+therefore $y\notin V_n$.  Hence $y\notin \bigcup_{n\in D\setminus F_y}V_n=O_{F_y}$.
+Thus, $y\notin \bigcap_{F\in[D]^{<\omega}}O_F$.
+
+This proves that $A=\bigcap_{F\in[D]^{<\omega}}O_F$.  Since
+$[D]^{<\omega}$ is countable, $A$ is a $G_\delta$ subset of $X$.
+As $A\subseteq X$ was arbitrary, $X$ is a
+$Q$-space.
+\end{proof}
+
+The preceding theorem applies to spaces with a $G_\delta$-diagonal without
+assuming the Urysohn axiom.  Conversely, the combinatorial base constructed in
+Section~\ref{sec:urysohn-q-spaces} shows directly that second-countable Urysohn
+spaces have $G_\delta$-diagonals.  For the sake of completeness, we include the
+short proof.
+
+\begin{lemma}\label{lem:second-countable-urysohn-gdelta-diagonal}
+Every second-countable Urysohn space has a $G_\delta$-diagonal.
+\end{lemma}
+
+\begin{proof}
+Let $X$ be a second-countable Urysohn space.  Apply
+Lemma~\ref{lem:urysohn-ad-base} and let $(\mathcal B_n)_{n<\omega}$ be the
+sequence of finite open covers obtained there.  If $x\neq y$, then there is
+$m<\omega$ such that, for every $n\geq m$, no member of $\mathcal B_n$ contains
+both $x$ and $y$ in its closure, and hence no member of $\mathcal B_n$ contains
+both $x$ and $y$.  Therefore
+\[
+\Delta_X=\bigcap_{n \in \omega}\bigcup_{U \in \mathcal B_n}U\times U.
+\]
+\end{proof}
+
+The last lemma explains why $\mathfrak q_{2\Delta}\leq
+\mathfrak q_{2\frac{1}{2}}$.  The next observation goes in a different
+direction: below the corresponding $Q$-space threshold, even the weaker
+separation axioms force a $G_\delta$-diagonal.
+
+\begin{lemma}\label{lem:q1-gdelta-diagonal}
+Every second-countable $T_i$ space of cardinality $<\mathfrak q_i$ has a
+$G_\delta$-diagonal, for
+$i\in\{1,2\}$.
+\end{lemma}
+
+\begin{proof}
+Let $X$ be a second-countable $T_i$ space such that $|X|<\mathfrak q_i$.
+By the definition of $\mathfrak q_i$, the space $X$ is a $Q$-space.  Hence
+every subset of $X$ is an $F_\sigma$ subset of $X$.
+
+Fix a countable base $\mathcal B$ for $X$.  For each $B\in\mathcal B$, choose
+a countable collection $\mathcal F_B$ of closed subsets of $X$ such that
+$B=\bigcup\mathcal F_B$, and put
+\[
+    \mathcal F=\bigcup_{B\in\mathcal B}\mathcal F_B.
+\]
+
+Then $\mathcal F$ is a countable closed network for $X$, meaning that for every
+open $O\subseteq X$ and every $x\in O$ there is $F\in\mathcal F$ such that
+$x\in F\subseteq O$.
+For each pair $(F,B)\in\mathcal F\times\mathcal B$ such that $F\subseteq B$,
+let
+\[
+    \mathcal U_{F,B}=\{B,X\setminus F\}.
+\]
+This is an open cover of $X$.  Also, the countable family of covers
+$\mathcal V=\{\mathcal U_{F,B}:F\in\mathcal F,
+      \ B\in\mathcal B,\ F\subseteq B\}$
+separates points in the following sense: if $x\neq y$, choose
+$B\in\mathcal B$ with $x\in B\subseteq X\setminus\{y\}$, and then choose
+$F\in\mathcal F_B$ with $x\in F$; for this pair $(F,B)$, no member of
+$\mathcal U_{F,B}$ contains both $x$ and $y$.
+Thus,
+\[
+\Delta_X=\bigcap_{\mathcal U\in\mathcal V}\bigcup_{U \in \mathcal U}U\times U.
+\]
+\end{proof}
