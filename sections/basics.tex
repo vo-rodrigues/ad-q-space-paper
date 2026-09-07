@@ -22,90 +22,7 @@ Thus, any separation of these cardinals from $\mathfrak q$ must use non-submetri
 More specifically, they asked whether $\mathfrak{ap}\leq \mathfrak q_2$.
 We show in this section that the answer is positive.
 
-The first step is to extract, from the Urysohn separation axiom, a countable base arranged in finite levels.
-The levels still refine neighborhoods of each point, but distinct points can occur together in closures only finitely often.
-
-\begin{lemma}\label{lem:urysohn-ad-base}
-Let $X$ be a second-countable Urysohn space.
-Then $X$ has a countable base $\mathcal B$ and a sequence $(\mathcal B_n)_{n<\omega}$ such that:
-\begin{enumerate}[label=(\roman*)]
-    \item $\mathcal B=\bigcup_{n<\omega}\mathcal B_n$;
-    \item for every $n<\omega$, $\mathcal B_n$ is finite;
-    \item for every two distinct points $x,y\in X$, the set $\{n \in \omega: \exists B\in\mathcal B_n\,(x\in\overline B\text{ and }y\in\overline B)\}$ is finite;
-    \item for every $x\in X$ and every open neighborhood $O$ of $x$, there is some $m<\omega$ such that for every $n\geq m$ there is some $B\in\mathcal B_n$ such that $x\in B\subseteq O$ (so, in particular, $\mathcal B$ is a base for $X$);
-    \item for every $n<\omega$ and $x\in X$, there is some $B\in\mathcal B_n$ such that $x\in B$ (that is, $\mathcal B_n$ covers $X$).
-\end{enumerate}
-\end{lemma}
-
-\begin{proof}
-Since $X$ is second-countable, $X^2\setminus\Delta$ is Lindelöf.
-Since $X$ is Urysohn, there exists a sequence of pairs of open subsets of $X$, $(U_k,V_k)_{k<\omega}$,
-such that
-\[
-    X^2\setminus\Delta
-    \subseteq \bigcup_{k<\omega} U_k\times V_k \qquad\text{and}\qquad \forall k<\omega\,\overline{U_k}\cap\overline{V_k}=\emptyset.
-\]
-
-For each $k<\omega$, let $C_k^0=X\setminus\overline{U_k}$ and $C_k^1=X\setminus\overline{V_k}$.
-Since $\overline{U_k}\cap\overline{V_k}=\emptyset$, the pair $\{C_k^0,C_k^1\}$ is an open cover of $X$.
-
-Fix a countable base $(G_m)_{m<\omega}$ for $X$ with $G_0=X$.
-For each $n<\omega$, define
-\[
-    \mathcal B_n=
-    \left\{
-        G_m\cap \bigcap_{k\leq n} C_k^{\varepsilon(k)}
-        :
-        m\leq n,\ \varepsilon\in 2^{n+1}
-    \right\}.
-\]
-
-Each $\mathcal B_n$ is a finite collection of open sets.
-Let $\mathcal B=\bigcup_{n<\omega}\mathcal B_n$.
-We first verify (iv).
-Let $x\in X$, and let
-$O\subseteq X$ be open with $x\in O$.
-Choose $m<\omega$ such that
-$x\in G_m\subseteq O$.
-Fix $n\geq m$.
-For every $k\leq n$, choose $\varepsilon(k)\in\{0,1\}$ such that
-$x\in C_k^{\varepsilon(k)}$. Then
-\[
-    x\in G_m\cap\bigcap_{k\leq n}C_k^{\varepsilon(k)}
-    \subseteq G_m\subseteq O,
-\]
-and this set belongs to $\mathcal B_n$.
-Thus, (iv) holds.
-The same argument with $G_0=X$ shows that (v) holds.
-
-It remains to verify (iii).
-Let $x\neq y$. Choose
-$k<\omega$ such that $(x,y)\in U_k\times V_k$.
-Then
-\[
-    x\notin\overline{C_k^0}
-    \quad\text{and}\quad
-    y\notin\overline{C_k^1}.
-\]
-Now let $n>k$ and $B\in\mathcal B_n$. By construction, either
-$B\subseteq C_k^0$ or $B\subseteq C_k^1$. In the first case,
-$x\notin\overline B$; in the second case, $y\notin\overline B$. Hence no
-member of $\mathcal B_n$, for $n>k$, has both $x$ and $y$ in its closure.
-
-Therefore,
-\[
-    \{n\in\omega:\exists B\in\mathcal B_n\,
-    (x\in\overline B\text{ and }y\in\overline B)\}
-    \subseteq \{0,\ldots,k\},
-\]
-which is finite.
-\end{proof}
-
-We now define a cardinal $\mathfrak{at}$ that is a tree analogue of $\mathfrak{ap}$.
-We will show that $\mathfrak{at}=\mathfrak q_{2}$.
-
-The preceding lemma turns Urysohn separation into a countable combinatorial object.
-This motivates the following tree variant of $\mathfrak{ap}$, which keeps track of weak separation for almost disjoint subtrees rather than for almost disjoint subsets of $\mathbb N$.
+We start by defining a cardinal $\mathfrak{at}$ that is a tree analogue of $\mathfrak{ap}$, which will be proven to be equal to $\mathfrak q_2$ in Theorem~\ref{thm:at-equals-q2}.
 
 In this paper, an $\omega$-tree is a rooted tree of height $\omega$ with finite levels, and subtrees are assumed to be nonempty and downward closed.  For $m<\omega$, write
 \[
@@ -186,12 +103,9 @@ This is impossible by König's lemma.
 Since $|X|\leq\kappa<\mathfrak q_2$, the space $X$ is a $Q$-space.
 In particular, write
 \[
-  H=\bigcup_{n<\omega}H_n,
+  H=\bigcup_{n<\omega}H_n \qquad \text{and} \qquad \mathcal Z=\bigcup_{n<\omega}Z_n,
 \]
-where each $H_n$ is closed in $X$, and define
-\[
-  S_n=\bigcup_{b\in H_n}b.
-\]
+where each $H_n$ is closed in $X$.
 \begin{claim}
   For every $n<\omega$ and every $Z\in\mathcal Z$, the set $S_n\cap Z$ is finite.
 \end{claim}
@@ -243,6 +157,22 @@ a finite union of finite sets. Thus $|D\cap Z|<\omega$.
 It follows that $D$ weakly separates $\mathcal Y$ from $\mathcal Z$, completing the proof.
 \end{proof}
 
+We will need the following auxiliary lemma.
+\begin{lemma}\label{prop:at-le-b}
+  $\mathfrak{at}\leq \mathfrak q$.
+  Thus, $\mathfrak{at}\leq \mathfrak b$.
+\end{lemma}
+\begin{proof}
+  Proposition~3.4 of \cite{brendle1999dow} says that:
+  \[
+    \mathfrak q = \min\{|\mathcal A|:\mathcal A\subseteq [2^{<\omega}]^\omega \text{ is a set of branches and } \exists \mathcal B\subseteq \mathcal A\, (\mathcal A\setminus \mathcal B, \mathcal B) \text{ is not weakly separated})\}.
+  \]
+
+  As $2^{<\omega}$ is an $\omega$-tree and every branch is a subtree of $2^{<\omega}$, it follows that $\mathfrak{at}\leq \mathfrak q$.
+  As $\mathfrak q\leq \mathfrak b$, we have $\mathfrak{at}\leq \mathfrak b$.
+\end{proof}
+
+Now we prove the main result of this section.
 
 \begin{thm}\label{thm:at-equals-q2}
 $\mathfrak{at}=\mathfrak q_{2}$.
@@ -252,4 +182,84 @@ $\mathfrak{at}=\mathfrak q_{2}$.
 By Proposition~\ref{prop:q2-below-at}, it suffices to show that $\mathfrak{at}\leq \mathfrak q_{2}$.
 Let $\kappa<\mathfrak{at}$.
 We show that $\kappa<\mathfrak q_{2}$.
+
+Let $X$ be a second-countable Hausdorff space with $|X|\leq\kappa$.
+We prove that $X$ is a $Q$-space.
+We may assume that $X\neq\emptyset$.
+
+Fix a countable base $\mathcal B$ and enumerate all ordered
+pairs of disjoint members of $\mathcal B$ as $(U_k,V_k)_{k<\omega}$,
+repeating pairs if necessary.
+For each $k<\omega$, let
+\[
+  C_k^0=X\setminus U_k,\qquad C_k^1=X\setminus V_k.
+\]
+These sets are closed and satisfy $C_k^0\cup C_k^1=X$.
+For each $s\in 2^{<\omega}$, define
+\[
+  F_s=\bigcap_{k<|s|}C_k^{s(k)},\qquad F_\emptyset=X,
+\]
+and, for each $x\in X$, put
+\[
+  T_x=\{s\in 2^{<\omega}:x\in F_s\}.
+\]
+\begin{claim}
+  The collection $\mathcal T=\{T_x:x\in X\}$ is an almost disjoint family of infinite subtrees of $2^{<\omega}$.
+\end{claim}
+\begin{proof}[Proof of the claim]
+  Every $F_s$ is closed, and $F_t\subseteq F_s$ whenever $s\subseteq t$.
+  Thus each $T_x$ is a subtree of $2^{<\omega}$.
+  Since each pair $\{C_k^0,C_k^1\}$ covers $X$, the tree $T_x$ meets
+  every level of $2^{<\omega}$, so it is infinite.
+
+  Now fix two distinct points $x,y\in X$.
+  We show that $T_x\cap T_y$ is finite.
+
+  As $X$ is Hausdorff, there exist $k\in \omega$ such that $x\in U_k$, $y\in V_k$, and $U_k\cap V_k=\emptyset$.
+  Thus, if $s\in 2^{\geq k}$, then $s(k)=0$ implies $x\notin F_s$, and $s(k)=1$ implies $y\notin F_s$.
+  Consequently, $T_x\cap T_y\subseteq2^{<k}$, which is finite.
+\end{proof}
+
+Notice that $|\mathcal T|=|X|\leq\kappa<\mathfrak{at}$.
+Now fix $A\subseteq X$.
+We will show that $A$ is an $F_\sigma$ subset of $X$.
+
+By the definition of $\mathfrak{at}$, there exists
+$D\subseteq 2^{<\omega}$ such that, for every $x\in A$ and every $y\in X\setminus A$,
+\[
+  |D\cap T_x|=\omega \qquad \text{and} \qquad
+  |D\cap T_y|<\omega
+\]
+For $(n,m)\in\omega^2$, define the closed set
+\[
+  E_{n,m}=\bigcup\{F_s:s\in D,\ n\leq |s|\leq m\}.
+\]
+For every $x\in A$ and $n\in\omega$, the infinite set $D\cap T_x$
+contains a node $x$ of length $m\geq n$.
+Thus, $x\in F_s$ for some $s\in D$ with $m=|s|\geq n$, so $x\in E_{n,m}$.
+We may therefore choose $f_x\in\omega^\omega$ such that, for every $n\in \omega$:
+\[
+  f_x(n)\geq n \quad \text{and} \quad x\in E_{n,f_x(n)}.
+\]
+As $|A|\leq\kappa<\mathfrak{at}\leq\mathfrak b$ by Proposition~\ref{prop:at-le-b}, choose $g\in\omega^\omega$ such that $f_x\leq^*g$ for every $x\in A$.
+By increasing $g$ pointwise if necessary, we may assume that $g(n)\geq n$ for every $n\in\omega$.
+
+We claim that
+\[
+  A=\bigcup_{N\in\omega}\bigcap_{n\geq N}E_{n,g(n)}.
+\]
+
+Given $x\in A$, choose $N$ such that $f_x(n)\leq g(n)$ for all $n\geq N$.
+Since $E_{n,m}$ is increasing in $m$, we have
+$x\in E_{n,g(n)}$ for every $n\geq N$.
+
+Conversely, given $y\in X\setminus A$, choose $n_0=\sup\{|s|+1:s\in D\cap T_y\}+1$.
+For every $n\geq n_0$ and every $m<\omega$, we have $y\notin E_{n,m}$ since if $y \in E_{n,m}$, then $y\in F_s$ for some $s\in D$ with $n\leq |s|\leq m$, contradicting the choice of $n_0$.
+Therefore for all $N\in\omega$, $y\notin\bigcap_{n\geq N}E_{n,g(n)}$.
+This proves the equality.
+
+Each $\bigcap_{n\geq N}E_{n,g(n)}$ is closed, so $A$ is $F_\sigma$.
+As $A$ is an arbitrary subset of $X$, the space $X$ is a $Q$-space.
+As $X$ was arbitrary, $\kappa<\mathfrak q_2$.
+Therefore $\mathfrak{at}\leq\mathfrak q_2$, completing the proof.
 \end{proof}
