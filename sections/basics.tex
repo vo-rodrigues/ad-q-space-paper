@@ -20,8 +20,7 @@ They also proved that every submetrizable space, that is, every space admitting 
 Thus, any separation of these cardinals from $\mathfrak q$ must use non-submetrizable examples \cite{banakh2023q}.
 
 More specifically, they asked whether $\mathfrak{ap}\leq \mathfrak q_2$.
-The relation between $\mathfrak{ap}$ and these new cardinals was left open, and it is natural to ask whether $\mathfrak{ap}$ is less than or equal to any of them.
-We show in this section that $\mathfrak{ap}\leq \mathfrak q_{2\frac{1}{2}}$.
+We show in this section that the answer is positive.
 
 The first step is to extract, from the Urysohn separation axiom, a countable base arranged in finite levels.
 The levels still refine neighborhoods of each point, but distinct points can occur together in closures only finitely often.
@@ -102,7 +101,8 @@ Therefore,
 which is finite.
 \end{proof}
 
-
+We now define a cardinal $\mathfrak{at}$ that is a tree analogue of $\mathfrak{ap}$.
+We will show that $\mathfrak{at}=\mathfrak q_{2}$.
 
 The preceding lemma turns Urysohn separation into a countable combinatorial object.
 This motivates the following tree variant of $\mathfrak{ap}$, which keeps track of weak separation for almost disjoint subtrees rather than for almost disjoint subsets of $\mathbb N$.
@@ -135,163 +135,121 @@ weakly separates $(\mathcal Y,\mathcal X\setminus\mathcal Y)$ if
 
 It follows immediately that $\mathfrak{ap}\leq \mathfrak{at}$, since every $\omega$-tree is countably infinite and, in the definition of $\mathfrak{ap}$, $\omega$ can be replaced by any infinite countable set.
 
-The next theorem gives the lower comparison with $\mathfrak q_1$.
-The idea is to topologize an almost disjoint family of branches and subtrees by declaring finite containment to be basic open information.
-
-\begin{thm}\label{thm:q1-below-at}
-$\mathfrak q_1\leq \mathfrak{at}$.
-\end{thm}
+\begin{proposition}\label{prop:q2-below-at}
+$\mathfrak q_2\leq \mathfrak{at}$.
+\end{proposition}
 \begin{proof}
-Let $\kappa$ be a cardinal such that $\kappa<\mathfrak q_1$.
+Let $\kappa<\mathfrak q_2$.
 We show that $\kappa<\mathfrak{at}$.
-Since $\mathfrak q_1\leq\mathfrak q\leq\mathfrak b$, it follows that
+Notice that $\kappa<\mathfrak q_2\leq\mathfrak q\leq\mathfrak b$.
+
+Let $\mathcal X$ be an almost disjoint family
+$\mathcal X$ of infinite subtrees of an $\omega$-tree $T$.
+Let $\mathcal Y\subseteq\mathcal X$ and put
+$\mathcal Z=\mathcal X\setminus\mathcal Y$.
+We will construct a set $D\subseteq T$ that weakly separates $\mathcal Y$ from $\mathcal Z$.
+
+If $\mathcal Y=\emptyset$, take $D=\emptyset$; if
+$\mathcal Z=\emptyset$, take $D=T$. Hence we may assume that both
+subcollections are nonempty.
+
+For each $Y\in\mathcal Y$, choose an infinite branch
+$b_Y\subseteq Y$, using König's lemma, and put
 \[
-  \kappa<\mathfrak b.
+  H=\{b_Y:Y\in\mathcal Y\},\qquad X=H\cup\mathcal Z.
+\]
+The almost disjointness of $\mathcal X$ implies $b_Y\neq b_{Y'}$ whenever $Y, Y'$ are distinct members of $\mathcal Y$, and that $H\cap \mathcal Z=\emptyset$.
+Thus, $X$ is an almost disjoint
+family of infinite subtrees of $T$ and $|X|\leq\kappa$.
+
+For each finite $F\subseteq T$, define
+\[
+  N_F=\{A\in X:A\cap F=\emptyset\}.
+\]
+Notice that 
+$N_\emptyset=X$ and $N_F\cap N_G=N_{F\cup G}$.
+Thus, these sets form a countable base for a topology on $X$.
+
+We claim that this topology is Hausdorff.
+For each $m \in \omega$, let $T_m$ be the $m$-th level of $T$.
+
+Let $A,B\in X$ be distinct, and choose $m<\omega$ such that
+$A\cap B\cap T_m=\emptyset$.
+Then $N_{T_m\setminus A}$ and $N_{T_m\setminus B}$ are open
+neighborhoods of $A$ and $B$, respectively.
+If $C$ belonged to both neighborhoods, we would have
+\[
+  C\cap T_m\subseteq A\cap B\cap T_m=\emptyset.
+\]
+This is impossible by König's lemma.
+
+Since $|X|\leq\kappa<\mathfrak q_2$, the space $X$ is a $Q$-space.
+In particular, write
+\[
+  H=\bigcup_{n<\omega}H_n,
+\]
+where each $H_n$ is closed in $X$, and define
+\[
+  S_n=\bigcup_{b\in H_n}b.
+\]
+\begin{claim}
+  For every $n<\omega$ and every $Z\in\mathcal Z$, the set $S_n\cap Z$ is finite.
+\end{claim}
+\begin{proof}[Proof of the claim]
+Since $Z\notin H_n$ and $H_n$ is closed, there exists a finite $F\subseteq T$ such that
+\[
+  Z\in N_F\subseteq X\setminus H_n.
 \]
 
-Let $T$ be an $\omega$-tree, and let $\mathcal X$ be an almost disjoint
-family of infinite subtrees of $T$ with $|\mathcal X|\leq\kappa$.
-Fix $\mathcal Y\subseteq\mathcal X$ and let $\mathcal Z=\mathcal X\setminus\mathcal Y$.
+Let $M=\max\{\htt(t):t\in F\}+1$.
 
-For each $Y\in\mathcal Y$, choose an infinite branch $b_Y\subseteq Y$, which is possible by König's lemma. Put
+Given $t\in S_n\cap Z$, $\htt(t)<M$, for if $\htt(t)\geq M$, choose, as $t\in S_n$, an element $b\in H_n$
+with $t\in b$.
+As $b \in H_n$, it follows that $b\notin N_F$, so there exists $u\in b\cap F$.
+
+Since $b$ is a branch, since $u, t\in b$, and since $\htt(t)\geq M>\htt(u)$, we have $u<t$.
+As $t\in Z$ and $Z$ is a subtree, we have $u\in Z$, contradicting $Z\in N_F$.
+Consequently,
 \[
-  H=\{b_Y:Y\in\mathcal Y\} \qquad \text{and}\qquad X=H\cup\mathcal Z.
+  S_n\cap Z\subseteq T_{<M},
 \]
-Thus, $X\subseteq [T]^\omega$, and $X$ is an almost disjoint family of infinite subsets of $T$ with $|X|\leq\kappa<\mathfrak q_1$.
+which is finite.
+\end{proof}
 
-For each finite $F\subseteq T$, let $[F]=\{A\in X:F\subseteq A\}$.
-The family
+For each $Z\in\mathcal Z$, choose $f_Z\in\omega^\omega$ such that
 \[
-  \mathcal U=\{[F]:F\in[T]^{<\omega}\}
+  S_n\cap Z\subseteq T_{<f_Z(n)}
+  \qquad(n<\omega).
 \]
-is a base for a topology on $X$, since $[F]\cap[G]=[F\cup G]$ for every $F,G\in[T]^{<\omega}$.
-Thus, $X$ is second-countable because $T$ is countable.
-Moreover, $X$ is $T_1$: let $A,A'\in X$ be distinct. Since $X$ is
-almost disjoint and $A$ is infinite, choose $t\in A\setminus A'$.
-Then $[\{t\}]$ is an open set containing $A$ and not containing $A'$.
-Interchanging $A$ and $A'$, we obtain an open set containing $A'$ and not
-containing $A$.
-
-By the definition of $\mathfrak q_1$, $X$ is a $Q$-space. In particular, $H$ is a
-$G_\delta$ subset of $X$.
-
-Choose open sets $U_n\subseteq X$ such that
+As $|\mathcal Z|\leq\kappa<\mathfrak b$, there exists
+$g\in\omega^\omega$ such that $f_Z\leq^*g$ for every
+$Z\in\mathcal Z$. Define
 \[
-  H=\bigcap_{n<\omega}U_n.
-\]
-Replacing $U_n$ by $\bigcap_{i\leq n}U_i$, we may assume that $U_{n+1}\subseteq U_n$ for every $n<\omega$.
-
-Fix $b\in H$ and $n<\omega$. Since $b\in U_n$ and $U_n$ is open, there is
-a finite set $F\subseteq b$ such that $b\in[F]\subseteq U_n$.
-As $b$ is a branch, there is $m<\omega$ such that, whenever $t\in b$ and
-$\htt(t)\geq m$, the node $t$ lies above every member of
-$F$. Since every element of $X$ is downward closed, any $A\in X$ with
-$t\in A$ must contain $F$. Hence
-\[
-  [\{t\}]\subseteq[F]\subseteq U_n.
+  D=\bigcup_{n<\omega}\bigl(S_n\setminus T_{<g(n)}\bigr).
 \]
 
-Define $f_b\in\omega^\omega$ by letting $f_b(n)$ be the least $m<\omega$
-such that
-\[
-  \forall t\in b\,
-  \bigl(\htt(t)\geq m\Rightarrow [\{t\}]\subseteq U_n\bigr).
-\]
-As $|\{f_b:b\in H\}|\leq \kappa<\mathfrak b$, the family $\{f_b:b\in H\}$ is bounded in $\omega^\omega$ with respect to $\leq^*$.
-Let $g\in\omega^\omega$ be such that $f_b\leq^* g$ for every $b\in H$.
-Increasing $g$ pointwise if necessary, we may assume that $g$ is strictly increasing.
-Define
-\[
-  D=\{t\in T:\exists n<\omega\,
-      (\htt(t)=g(n)\text{ and }[\{t\}]\subseteq U_n)\}.
-\]
+Given $Y\in\mathcal Y$, there exists $n<\omega$ such that $b_Y\in H_n$.
+Hence $b_Y\setminus T_{<g(n)}\subseteq S_n\setminus T_{<g(n)}$, so $|D\cap Y|=\omega$.
 
-We show that $D$ weakly separates $\mathcal Y$ from $\mathcal Z$.
-
-First fix $Y\in\mathcal Y$, and let $b=b_Y$. For all but finitely many
-$n<\omega$, $f_b(n)\leq g(n)$.
-Let $t_n$ be the unique node of $b$ on level $g(n)$. By the definition of
-$f_b(n)$, for all but finitely many $n$ we have $[\{t_n\}]\subseteq U_n$.
-
-Thus, $t_n\in D\cap b$ for infinitely many $n$. Since $g$ is strictly
-increasing, these nodes are distinct.
-Therefore $|D\cap b|=\omega$.
-As $b=b_Y\subseteq Y$, it follows that $|D\cap Y|=\omega$.
-
-Now fix $Z\in\mathcal Z$.
-Since $Z\notin H$ and $H=\bigcap_{n<\omega}U_n$, there is $N<\omega$ such that $Z\notin U_N$.
-As the sequence $(U_n)_{n<\omega}$ is decreasing, we have $Z\notin U_n$ for every $n\geq N$.
-
-Suppose that $t\in Z\cap D$ and $\htt(t)=g(n)$ for some
-$n\geq N$.
-By the definition of $D$, $[\{t\}]\subseteq U_n$.
-But $t\in Z$, so $Z\in[\{t\}]$, and hence $Z\in U_n$, a contradiction.
+Given $Z\in\mathcal Z$, choose $N<\omega$ such that
+$f_Z(n)\leq g(n)$ for all $n\geq N$.
+For such numbers $n$, the set $S_n\setminus T_{<g(n)}$ is disjoint from $Z$.
 Therefore
 \[
-  Z\cap D\subseteq \bigcup_{n<N}T_{g(n)}.
+  D\cap Z\subseteq\bigcup_{n<N}(S_n\cap Z),
 \]
-Each level of $T$ is finite, so $|Z\cap D|<\omega$.
-Thus, $D$ weakly separates $\mathcal Y$ from $\mathcal Z$.
+a finite union of finite sets. Thus $|D\cap Z|<\omega$.
 
-As $T$, $\mathcal X$ and $\mathcal Y$ were arbitrary, we conclude that $\kappa<\mathfrak{at}$.
+It follows that $D$ weakly separates $\mathcal Y$ from $\mathcal Z$, completing the proof.
 \end{proof}
 
 
-\begin{lemma}\label{lem:at-below-q212}
-$\mathfrak{at}\leq \mathfrak q_{2\frac{1}{2}}$.
-Consequently, $\mathfrak{ap}\leq \mathfrak q_{2\frac{1}{2}}$.
-\end{lemma}
+\begin{thm}\label{thm:at-equals-q2}
+$\mathfrak{at}=\mathfrak q_{2}$.
+\end{thm}
 
 \begin{proof}
-Let $X$ be a second-countable Urysohn space with $|X|<\mathfrak{at}$.  We show
-that every subset of $X$ is a $G_\delta$ subset of $X$.
-
-Apply Lemma~\ref{lem:urysohn-ad-base} to get a countable sequence of finite
-covers of $X$, $(\mathcal B_n:n<\omega)$, as in the statement of the lemma.
-Let
-\[
-  T=\bigcup_{n<\omega}\prod_{k<n}\mathcal B_k,
-\]
-ordered by inclusion (that is, initial-segment extension).
-This is a countable tree with finite levels.
-For $x\in X$ put
-\[
-  T_x=\{t\in T: \forall k<|t|\ (x\in t(k))\}.
-\]
-Each $T_x$ is an infinite subtree of $T$.  If $x\neq y$, then by
-Lemma~\ref{lem:urysohn-ad-base} there is $m<\omega$ such that, for all
-$n\geq m$, no member of $\mathcal B_n$ contains both $x$ and $y$ in its closure,
-and hence no member of $\mathcal B_n$ contains both $x$ and $y$.  Therefore,
-$T_x\cap T_y$ has height at most $m$ and is finite.  Thus,
-\[
-  \mathcal T_X=\{T_x:x\in X\}
-\]
-is an almost disjoint family of subtrees of $T$.
-The map $x\mapsto T_x$ is injective, since $T_x\cap T_y$ is finite for
-$x\neq y$, whereas each $T_x$ is infinite.
-
-Fix $A\subseteq X$.
-Since $|\mathcal T_X|<\mathfrak{at}$, there exists $D\subseteq T$ such that
-\[
-   \forall x\in A\ |D\cap T_x|=\omega,
-   \qquad \text{and}\qquad
-   \forall y\in X\setminus A\ |D\cap T_y|<\omega.
-\]
-
-For $t\in T$ let $O_t=\bigcap_{k<|t|} t(k)$, with the convention
-$O_\emptyset=X$.  Also, for each finite $F\subseteq D$ define
-$W_F=\bigcup_{t\in D\setminus F} O_t$.
-Each $W_F$ is open, and $[D]^{<\omega}$ is countable.  We claim that
-\[
-  A=\bigcap_{F\in[D]^{<\omega}} W_F.
-\]
-If $x\in A$ and $F\in[D]^{<\omega}$, choose
-$t\in(D\cap T_x)\setminus F$.  Then $x\in O_t\subseteq W_F$.  Conversely, let
-$y\in X\setminus A$ and put $F_y=D\cap T_y$.  This set is finite.  If
-$t\in D\setminus F_y$, then $t\notin T_y$, so for some $k<|t|$ we have
-$y\notin t(k)$, and hence $y\notin O_t$.  Thus $y\notin W_{F_y}$.
-
-Therefore every subset of $X$ is a $G_\delta$ subset of $X$.  Applying this to
-complements, every subset is also an $F_\sigma$ subset of $X$.  Hence $X$ is a
-$Q$-space.
+By Proposition~\ref{prop:q2-below-at}, it suffices to show that $\mathfrak{at}\leq \mathfrak q_{2}$.
+Let $\kappa<\mathfrak{at}$.
+We show that $\kappa<\mathfrak q_{2}$.
 \end{proof}
