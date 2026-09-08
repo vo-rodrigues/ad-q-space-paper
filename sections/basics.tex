@@ -52,38 +52,31 @@ weakly separates $(\mathcal Y,\mathcal X\setminus\mathcal Y)$ if
 
 It follows immediately that $\mathfrak{ap}\leq \mathfrak{at}$, since every $\omega$-tree is countably infinite and, in the definition of $\mathfrak{ap}$, $\omega$ can be replaced by any infinite countable set.
 
-\begin{proposition}\label{prop:q2-below-at}
-$\mathfrak q_2\leq \mathfrak{at}$.
-\end{proposition}
-\begin{proof}
-Let $\kappa<\mathfrak q_2$.
-We show that $\kappa<\mathfrak{at}$.
-Notice that $\kappa<\mathfrak q_2\leq\mathfrak q\leq\mathfrak b$.
 
-Let $\mathcal X$ be an almost disjoint family
-$\mathcal X$ of infinite subtrees of an $\omega$-tree $T$.
-Let $\mathcal Y\subseteq\mathcal X$ and put
-$\mathcal Z=\mathcal X\setminus\mathcal Y$.
-We will construct a set $D\subseteq T$ that weakly separates $\mathcal Y$ from $\mathcal Z$.
-
-If $\mathcal Y=\emptyset$, take $D=\emptyset$; if
-$\mathcal Z=\emptyset$, take $D=T$. Hence we may assume that both
-subcollections are nonempty.
-
-For each $Y\in\mathcal Y$, choose an infinite branch
-$b_Y\subseteq Y$, using König's lemma, and put
+\begin{lemma}\label{lem:tree-fsigma-separator}
+Let $\mathcal A$ be an almost disjoint family of infinite subtrees of an
+$\omega$-tree $T$, let $\mathcal Y\subseteq\mathcal A$, and put
+$\mathcal Z=\mathcal A\setminus\mathcal Y$.
+For each $Y\in\mathcal Y$, choose an infinite branch $b_Y\subseteq Y$, and put
 \[
   H=\{b_Y:Y\in\mathcal Y\},\qquad X=H\cup\mathcal Z.
 \]
-The almost disjointness of $\mathcal X$ implies $b_Y\neq b_{Y'}$ whenever $Y, Y'$ are distinct members of $\mathcal Y$, and that $H\cap \mathcal Z=\emptyset$.
-Thus, $X$ is an almost disjoint
-family of infinite subtrees of $T$ and $|X|\leq\kappa$.
-
-For each finite $F\subseteq T$, define
+The sets
 \[
-  N_F=\{A\in X:A\cap F=\emptyset\}.
+  N_F=\{S\in X:S\cap F=\emptyset\}\qquad(F\subseteq T\text{ finite})
 \]
-Notice that 
+form a countable base for a Hausdorff topology $\tau^-$ on $X$.
+
+If $|\mathcal Z|<\mathfrak b$ and $H$ is $F_\sigma$ in $(X,\tau^-)$,
+then $\mathcal Y$ can be weakly separated from $\mathcal Z$.
+\end{lemma}
+
+\begin{proof}
+The almost disjointness of $\mathcal A$ implies $b_Y\neq b_{Y'}$ whenever $Y, Y'$ are distinct members of $\mathcal Y$, and that $H\cap \mathcal Z=\emptyset$.
+Thus, $X$ is an almost disjoint
+family of infinite subtrees of $T$ and $|X|=|\mathcal A|$.
+
+Notice that
 $N_\emptyset=X$ and $N_F\cap N_G=N_{F\cup G}$.
 Thus, these sets form a countable base for a topology on $X$.
 
@@ -100,10 +93,9 @@ If $C$ belonged to both neighborhoods, we would have
 \]
 This is impossible by König's lemma.
 
-Since $|X|\leq\kappa<\mathfrak q_2$, the space $X$ is a $Q$-space.
-In particular, write
+For the second part, write
 \[
-  H=\bigcup_{n<\omega}H_n \qquad \text{and} \qquad \mathcal Z=\bigcup_{n<\omega}Z_n,
+  H=\bigcup_{n<\omega}H_n,\qquad S_n=\bigcup_{b\in H_n}b,
 \]
 where each $H_n$ is closed in $X$.
 \begin{claim}
@@ -115,7 +107,8 @@ Since $Z\notin H_n$ and $H_n$ is closed, there exists a finite $F\subseteq T$ su
   Z\in N_F\subseteq X\setminus H_n.
 \]
 
-Let $M=\max\{\htt(t):t\in F\}+1$.
+If $F=\emptyset$, then $H_n=\emptyset$ and the claim is immediate.
+Otherwise, let $M=\max\{\htt(t):t\in F\}+1$.
 
 Given $t\in S_n\cap Z$, $\htt(t)<M$, for if $\htt(t)\geq M$, choose, as $t\in S_n$, an element $b\in H_n$
 with $t\in b$.
@@ -135,7 +128,7 @@ For each $Z\in\mathcal Z$, choose $f_Z\in\omega^\omega$ such that
   S_n\cap Z\subseteq T_{<f_Z(n)}
   \qquad(n<\omega).
 \]
-As $|\mathcal Z|\leq\kappa<\mathfrak b$, there exists
+As $|\mathcal Z|<\mathfrak b$, there exists
 $g\in\omega^\omega$ such that $f_Z\leq^*g$ for every
 $Z\in\mathcal Z$. Define
 \[
@@ -153,8 +146,24 @@ Therefore
   D\cap Z\subseteq\bigcup_{n<N}(S_n\cap Z),
 \]
 a finite union of finite sets. Thus $|D\cap Z|<\omega$.
-
 It follows that $D$ weakly separates $\mathcal Y$ from $\mathcal Z$, completing the proof.
+\end{proof}
+
+\begin{proposition}\label{prop:q2-below-at}
+$\mathfrak q_2\leq \mathfrak{at}$.
+\end{proposition}
+\begin{proof}
+Fix $\kappa<\mathfrak q_2$, an almost disjoint family $\mathcal A$ of
+infinite subtrees of an $\omega$-tree $T$ with $|\mathcal A|\leq\kappa$,
+and $\mathcal Y\subseteq\mathcal A$.
+Choose branches by König's lemma and form $H$, $X$, and $\tau^-$ as in
+Lemma~\ref{lem:tree-fsigma-separator}.
+Since $(X,\tau^-)$ is second-countable and Hausdorff and
+$|X|\leq\kappa<\mathfrak q_2$, it is a $Q$-space. In particular, $H$
+is $F_\sigma$ in $\tau^-$.
+Also $|\mathcal A\setminus\mathcal Y|\leq\kappa<\mathfrak q_2\leq\mathfrak b$,
+so the lemma gives a weak separator of $\mathcal Y$ from
+$\mathcal A\setminus\mathcal Y$. Thus $\kappa<\mathfrak{at}$.
 \end{proof}
 
 We will need the following auxiliary lemma.
@@ -170,6 +179,37 @@ We will need the following auxiliary lemma.
 
   As $2^{<\omega}$ is an $\omega$-tree and every branch is a subtree of $2^{<\omega}$, it follows that $\mathfrak{at}\leq \mathfrak q$.
   As $\mathfrak q\leq \mathfrak b$, we have $\mathfrak{at}\leq \mathfrak b$.
+\end{proof}
+
+The following bounding argument reduces $F_{\sigma\delta}$ sets of
+cardinality less than $\mathfrak b$ to $F_\sigma$ sets.
+
+\begin{lemma}\label{lem:diagonal-collapse}
+Let $A$ be an $F_{\sigma\delta}$ subset of a topological space $X$.
+If $|A|<\mathfrak b$, then $A$ is $F_\sigma$ in $X$.
+\end{lemma}
+
+\begin{proof}
+Write
+\[
+  A=\bigcap_{n\in\omega}\bigcup_{m<\omega}F_{n,m},
+\]
+where the sets $F_{n,m}$ are closed and increasing in $m$.
+Put $E_{n,m}=\bigcap_{i\leq n}F_{i,m}$ and
+$H_n=\bigcup_{m\in\omega}E_{n,m}$.
+Then $H_n=\bigcap_{i\leq n}\bigcup_{m\in\omega}F_{i,m}$, so the
+sets $H_n$ are decreasing and $A=\bigcap_{n\in \omega} H_n$.
+For each $a\in A$, choose $f_a\in\omega^\omega$ with
+$a\in E_{n,f_a(n)}$ for all $n$.
+Since $|A|<\mathfrak b$, there is $g\in\omega^\omega$ such that
+$f_a\leq^*g$ for every $a\in A$. We have
+\[
+  A=\bigcup_{N\in\omega}\bigcap_{n\geq N}E_{n,g(n)}.
+\]
+The forward inclusion follows from eventual domination and monotonicity
+in $m$. Conversely, a point in $\bigcap_{n\geq N}E_{n,g(n)}$ belongs
+to every $H_n$ for $n\geq N$, and hence to $A$ because the $H_n$ are
+decreasing. Each intersection on the right is closed, so $A$ is $F_\sigma$.
 \end{proof}
 
 Now we prove the main result of this section.
@@ -217,8 +257,8 @@ and, for each $x\in X$, put
   We show that $T_x\cap T_y$ is finite.
 
   As $X$ is Hausdorff, there exist $k\in \omega$ such that $x\in U_k$, $y\in V_k$, and $U_k\cap V_k=\emptyset$.
-  Thus, if $s\in 2^{\geq k}$, then $s(k)=0$ implies $x\notin F_s$, and $s(k)=1$ implies $y\notin F_s$.
-  Consequently, $T_x\cap T_y\subseteq2^{<k}$, which is finite.
+  Thus, if $s\in 2^{\geq k+1}$, then $s(k)=0$ implies $x\notin F_s$, and $s(k)=1$ implies $y\notin F_s$.
+  Consequently, $T_x\cap T_y\subseteq2^{\leq k}$, which is finite.
 \end{proof}
 
 Notice that $|\mathcal T|=|X|\leq\kappa<\mathfrak{at}$.
@@ -235,31 +275,22 @@ For $(n,m)\in\omega^2$, define the closed set
 \[
   E_{n,m}=\bigcup\{F_s:s\in D,\ n\leq |s|\leq m\}.
 \]
-For every $x\in A$ and $n\in\omega$, the infinite set $D\cap T_x$
-contains a node $x$ of length $m\geq n$.
-Thus, $x\in F_s$ for some $s\in D$ with $m=|s|\geq n$, so $x\in E_{n,m}$.
-We may therefore choose $f_x\in\omega^\omega$ such that, for every $n\in \omega$:
+Since the levels of $2^{<\omega}$ are finite, each $E_{n,m}$ is a finite
+union of closed sets. Moreover,
 \[
-  f_x(n)\geq n \quad \text{and} \quad x\in E_{n,f_x(n)}.
+  A=\bigcap_{n<\omega}\bigcup_{m<\omega}E_{n,m}.
 \]
-As $|A|\leq\kappa<\mathfrak{at}\leq\mathfrak b$ by Proposition~\ref{prop:at-le-b}, choose $g\in\omega^\omega$ such that $f_x\leq^*g$ for every $x\in A$.
-By increasing $g$ pointwise if necessary, we may assume that $g(n)\geq n$ for every $n\in\omega$.
+Indeed, for $x\in A$, the infinite set $D\cap T_x$ contains nodes of
+arbitrarily large length, so for every $n$ there is $m$ with
+$x\in E_{n,m}$. Conversely, if $y\notin A$, the set $D\cap T_y$ is
+finite. Choose $n=\sup\{|s|:s\in D\cap T_y\}+1$.
+Then
+$y\notin E_{n,m}$ for every $m\in \omega$.
+Thus $A$ is $F_{\sigma\delta}$ in $X$.
+Since $|A|\leq\kappa<\mathfrak{at}\leq\mathfrak b$ by
+Lemma~\ref{prop:at-le-b}, Lemma~\ref{lem:diagonal-collapse} implies
+that $A$ is $F_\sigma$ in $X$.
 
-We claim that
-\[
-  A=\bigcup_{N\in\omega}\bigcap_{n\geq N}E_{n,g(n)}.
-\]
-
-Given $x\in A$, choose $N$ such that $f_x(n)\leq g(n)$ for all $n\geq N$.
-Since $E_{n,m}$ is increasing in $m$, we have
-$x\in E_{n,g(n)}$ for every $n\geq N$.
-
-Conversely, given $y\in X\setminus A$, choose $n_0=\sup\{|s|+1:s\in D\cap T_y\}+1$.
-For every $n\geq n_0$ and every $m<\omega$, we have $y\notin E_{n,m}$ since if $y \in E_{n,m}$, then $y\in F_s$ for some $s\in D$ with $n\leq |s|\leq m$, contradicting the choice of $n_0$.
-Therefore for all $N\in\omega$, $y\notin\bigcap_{n\geq N}E_{n,g(n)}$.
-This proves the equality.
-
-Each $\bigcap_{n\geq N}E_{n,g(n)}$ is closed, so $A$ is $F_\sigma$.
 As $A$ is an arbitrary subset of $X$, the space $X$ is a $Q$-space.
 As $X$ was arbitrary, $\kappa<\mathfrak q_2$.
 Therefore $\mathfrak{at}\leq\mathfrak q_2$, completing the proof.
