@@ -1,5 +1,5 @@
-\section{On almost disjointness and Urysohn $Q$-spaces}\label{sec:urysohn-q-spaces}
-As discussed in the introduction, the cardinal $\mathfrak q$ is the least cardinality of a non-$Q$-set of reals. For $f,g\in\omega^\omega$, write $f\leq^* g$ if $f(n)\leq g(n)$ for all but finitely many $n\in\omega$. It is known that $\mathfrak p\leq \mathfrak q\leq \mathfrak b$, where $\mathfrak b$ is the bounding number, namely the least cardinality of a family in $\omega^\omega$ that is not bounded by any single function with respect to $\leq^*$ \cite{miller1984special}.
+\section{On almost disjointness and $Q$-spaces}\label{sec:hausdorff-q-spaces}
+As discussed in the introduction, the cardinal $\mathfrak q$ is the least cardinality of a set of reals that is not a $Q$-space. For $f,g\in\omega^\omega$, write $f\leq^* g$ if $f(n)\leq g(n)$ for all but finitely many $n\in\omega$. It is known that $\mathfrak p\leq \mathfrak q\leq \mathfrak b$, where $\mathfrak b$ is the bounding number, namely the least cardinality of a family in $\omega^\omega$ that is not bounded by any single function with respect to $\leq^*$ \cite{miller1984special}.
 
 In \cite{banakh2023q}, Banakh and Bazylevych introduced the following separation-axiom variants of $\mathfrak q$ (with the classical invariant denoted by $\mathfrak q_0$ in their notation).
 
@@ -174,7 +174,12 @@ We will need the following auxiliary lemma.
 \begin{proof}
   Proposition~3.4 of \cite{brendle1999dow} says that:
   \[
-    \mathfrak q = \min\{|\mathcal A|:\mathcal A\subseteq [2^{<\omega}]^\omega \text{ is a set of branches and } \exists \mathcal B\subseteq \mathcal A\, (\mathcal A\setminus \mathcal B, \mathcal B) \text{ is not weakly separated})\}.
+    \mathfrak q = \min\left\{|\mathcal A|:
+    \begin{array}{l}
+      \mathcal A\subseteq [2^{<\omega}]^\omega\text{ is a family of branches, and}\\
+      \exists\mathcal B\subseteq\mathcal A\text{ such that }(\mathcal A\setminus\mathcal B,\mathcal B)\\
+      \text{is not weakly separated}
+    \end{array}\right\}.
   \]
 
   As $2^{<\omega}$ is an $\omega$-tree and every branch is a subtree of $2^{<\omega}$, it follows that $\mathfrak{at}\leq \mathfrak q$.
@@ -226,7 +231,7 @@ We show that $\kappa<\mathfrak q_{2}$.
 
 Let $X$ be a second-countable Hausdorff space with $|X|\leq\kappa$.
 We prove that $X$ is a $Q$-space.
-We may assume that $X\neq\emptyset$.
+We may assume that $X$ has at least two points.
 
 Fix a countable base $\mathcal B$ and enumerate all ordered
 pairs of disjoint members of $\mathcal B$ as $(U_k,V_k)_{k<\omega}$,
@@ -256,7 +261,7 @@ and, for each $x\in X$, put
   Now fix two distinct points $x,y\in X$.
   We show that $T_x\cap T_y$ is finite.
 
-  As $X$ is Hausdorff, there exist $k\in \omega$ such that $x\in U_k$, $y\in V_k$, and $U_k\cap V_k=\emptyset$.
+  As $X$ is Hausdorff, there exists $k\in \omega$ such that $x\in U_k$, $y\in V_k$, and $U_k\cap V_k=\emptyset$.
   Thus, if $s\in 2^{\geq k+1}$, then $s(k)=0$ implies $x\notin F_s$, and $s(k)=1$ implies $y\notin F_s$.
   Consequently, $T_x\cap T_y\subseteq2^{\leq k}$, which is finite.
 \end{proof}
@@ -269,7 +274,7 @@ By the definition of $\mathfrak{at}$, there exists
 $D\subseteq 2^{<\omega}$ such that, for every $x\in A$ and every $y\in X\setminus A$,
 \[
   |D\cap T_x|=\omega \qquad \text{and} \qquad
-  |D\cap T_y|<\omega
+  |D\cap T_y|<\omega.
 \]
 For $(n,m)\in\omega^2$, define the closed set
 \[

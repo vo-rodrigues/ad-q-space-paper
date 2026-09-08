@@ -392,7 +392,7 @@ is uncountable.  Since $\tau=\eta^\frown\langle t\rangle$, this concludes the
 proof.
 \end{proof}
 
-\subsection{Ranks and finite-rank approximations}
+\subsection{Ranks and ground-model approximations}
 \label{subsec:ranks}
 
 We now introduce the rank machinery used to analyze names for subsets of $\omega$.
@@ -1083,7 +1083,7 @@ by the countable chain condition, there exists a countable set $I'\subseteq I$ s
 \]
 But then, for each $\beta\in I$, $p_\beta \Vdash \check \beta\in\check I'$, so $I\subseteq I'$ in the ground model, a contradiction.
 
-Now working on a countable transitive model $M$, let $G_{\delta_n}$ be a $\mathbb P_{\delta_n}$-generic filter over $M$ with $q \in G_{\delta_n}$.
+Now working in a countable transitive model $M$, let $G_{\delta_n}$ be a $\mathbb P_{\delta_n}$-generic filter over $M$ with $q \in G_{\delta_n}$.
 Since $q\leq p$, the generic filter also contains $p$, so $J=\{\beta\in I:p_\beta\in G_{\delta_n}\}$ is uncountable.
 Define
 \[
@@ -1149,18 +1149,18 @@ where $\varphi$ is a formula with $x$ as its only free variable, possibly with
 $\mathbb P$-names as parameters, then there is a $\mathbb P$-name
 $\dot x\in H(\kappa)$ such that $p\Vdash_{\mathbb P}\dot x\in H(\check\kappa)\wedge\varphi(\dot x)$.
 
-\begin{thm}\label{thm:consistent-ap-below-q212}
+\begin{thm}\label{thm:consistent-ap-below-at}
 Assume GCH and let $\lambda>\omega_1$ be regular.  There is a ccc forcing
 extension in which
 \[
   \mathfrak{ap}=\omega_1<
-  \mathfrak{at}=\mathfrak q_{2\frac{1}{2}}=\mathfrak c=\lambda.
+  \mathfrak{at}=\mathfrak q_2=\mathfrak q_{2\frac{1}{2}}=\mathfrak c=\lambda.
 \]
 In particular,
 \[
   \operatorname{Con}(\mathrm{ZFC})
   \Rightarrow
-  \operatorname{Con}(\mathfrak{ap}<\mathfrak{at}).
+  \operatorname{Con}(\mathrm{ZFC}+\mathfrak{ap}<\mathfrak{at}).
 \]
 \end{thm}
 
@@ -1175,7 +1175,6 @@ intertwined family
 
 Fix a surjection $f:\lambda\to\lambda\times\lambda$ such that, for every
 $\xi, \beta, \eta<\lambda$, if $f(\xi)=(\beta,\eta)$, then $\eta\leq\xi$.
-$(\beta,\eta)\in\lambda\times\lambda$.
 Also, fix a well-ordering $\sqsubseteq$ of $H(\lambda^+)$.
 
 We shall construct a finite-support iteration
