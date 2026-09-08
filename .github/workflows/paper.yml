@@ -1,0 +1,85 @@
+# SPDX-License-Identifier: CC-BY-4.0
+name: Paper PDF
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: paper-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  build:
+    name: Compile manuscript
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Check out sources
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          persist-credentials: false
+      - name: Compile PDF with bibliography
+        uses: xu-cheng/latex-action@6549dc21effb2730855a1281407ecfcececc6c1b # v4
+        with:
+          root_file: main.tex
+          args: -pdf -file-line-error -halt-on-error -interaction=nonstopmode
+      - name: Check references
+        shell: bash
+        run: |
+          if grep -Eq 'There were undefined references|Citation .* undefined|Reference .* undefined' main.log; then
+            echo 'Unresolved references or citations in main.log.'
+            exit 1
+          fi
+      - name: Upload PDF
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7
+        with:
+          name: paper-pdf
+          path: main.pdf
+          if-no-files-found: error
+          retention-days: 90
+
+  publish:
+    name: Update latest PDF
+    needs: build
+    if: >-
+      github.event_name != 'pull_request' &&
+      github.ref == format('refs/heads/{0}', github.event.repository.default_branch)
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      actions: read
+      contents: write
+    env:
+      GH_TOKEN: ${{ github.token }}
+      GH_REPO: ${{ github.repository }}
+      BUILD_SHA: ${{ github.sha }}
+      BUILD_RUN_ID: ${{ github.run_id }}
+      DEFAULT_BRANCH: ${{ github.event.repository.default_branch }}
+    steps:
+      - name: Publish current default-branch PDF
+        shell: bash
+        run: |
+          set -euo pipefail
+          gh run download "$BUILD_RUN_ID" --name paper-pdf --dir artifact
+          test -s artifact/main.pdf
+          current_sha=$(gh api "repos/$GH_REPO/git/ref/heads/$DEFAULT_BRANCH" --jq '.object.sha')
+          if [ "$current_sha" != "$BUILD_SHA" ]; then
+            echo 'Skipping an outdated build.'
+            exit 0
+          fi
+          printf 'Latest manuscript PDF, compiled from commit %s.\n' "$BUILD_SHA" > release-notes.md
+          if gh release view latest-pdf > /dev/null 2>&1; then
+            gh api --method PATCH "repos/$GH_REPO/git/refs/tags/latest-pdf" \
+              -f sha="$BUILD_SHA" -F force=true > /dev/null
+            gh release upload latest-pdf artifact/main.pdf --clobber
+            gh release edit latest-pdf --title 'Latest PDF' --notes-file release-notes.md --prerelease --latest=false
+          else
+            gh release create latest-pdf artifact/main.pdf \
+              --target "$BUILD_SHA" --title 'Latest PDF' \
+              --notes-file release-notes.md --prerelease --latest=false
+          fi

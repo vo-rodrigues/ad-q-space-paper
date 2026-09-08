@@ -18,6 +18,12 @@
 
 # Generated documents
 *.pdf
+main.zip
+*.synctex
+*.nav
+*.snm
+*.vrb
+*.xdv
 
 # Editor and temporary files
 *.bak

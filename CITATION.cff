@@ -1,0 +1,21 @@
+cff-version: 1.2.0
+message: "Please cite the manuscript using the preferred citation below."
+type: dataset
+title: "Almost Disjointness Principles and Q-Space Cardinals: manuscript sources"
+authors:
+  - family-names: "de Oliveira Rodrigues"
+    given-names: "Vinicius"
+    affiliation: "University of São Paulo"
+license: CC-BY-4.0
+repository-code: "https://github.com/vo-rodrigues/ad-q-space-paper"
+url: "https://github.com/vo-rodrigues/ad-q-space-paper"
+preferred-citation:
+  type: unpublished
+  title: "Almost Disjointness Principles and Q-Space Cardinals"
+  authors:
+    - family-names: "de Oliveira Rodrigues"
+      given-names: "Vinicius"
+  year: 2026
+  doi: "10.48550/arXiv.2605.11326"
+  url: "https://arxiv.org/abs/2605.11326"
+  notes: "Preprint, arXiv:2605.11326 [math.LO]. Repository revisions may be newer than the arXiv version."
